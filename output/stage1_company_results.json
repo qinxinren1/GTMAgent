@@ -1,0 +1,67 @@
+{
+  "results": [    {
+    "url": "https://orus.eu/",
+    "id": "https://exa.ai/library/company/orus-insurance",
+    "title": "Orus",
+    "score": null,
+    "published_date": "2026-02-20T00:00:00.000Z",
+    "author": "Exa",
+    "image": "https://media.licdn.com/dms/image/v2/D4D0BAQGEJNY5Sg1MUA/company-logo_200_200/company-logo_200_200/0/1738137455129/orus_insurance_logo?e=2147483647&v=beta&t=vlc8V2ST0oaBBQtMGq9kjuiaZF6YP5RjQ2S4mXCAdQs",
+    "favicon": null,
+    "subpages": null,
+    "extras": null,
+    "entities": [
+      {
+        "id": "https://exa.ai/library/company/orus-insurance",
+        "type": "company",
+        "version": 1,
+        "properties": {
+          "name": "Orus",
+          "founded_year": 2022,
+          "description": "We are on a mission to offer simple, affordable, and tailored insurance coverage to European SMBs to give them the peace of mind to focus on what matters. \n\nWe want to revolutionize the way SMBs interact with insurance with great UX, total transparency, prevention and assistance.",
+          "workforce": {
+            "total": 92
+          },
+          "headquarters": {
+            "address": null,
+            "city": "Paris",
+            "postal_code": null,
+            "country": "France"
+          },
+          "financials": {
+            "revenue_annual": 3100000,
+            "funding_total": 45855810,
+            "funding_latest_round": {
+              "name": "Series B",
+              "date": "2025-07-24",
+              "amount": 29100000
+            }
+          },
+          "web_traffic": {
+            "visits_monthly": 76685
+          }
+        }
+      }
+    ],
+    "crawl_date": null,
+    "text": null,
+    "summary": null,
+    "highlights": [
+      "Orus is a Insurance company. Orus employs 92 people (+64.6% YoY, +51 people) and has an annual revenue of $3.1M, founded in 2022. Headquartered in Paris, France, operates in 5 countries (including Spain, Germany, United States, and United Arab Emirates). Has $45.9M in total funding, most recently a Series B in July 2025, with 3 prior funding rounds.   ...    - Homepage: orus.eu\n- Status: active\n- Ownership: Private\n- Aliases: orus, orus (france), orus sas   ...    - Phone: 21006562, 01 89 71 63 04, +33 01 89 71 63 04 ## Financials\n- Annual Revenue: USD 3,100,000\n- Total Funding: USD 45,855,810 - Series A (2023-10-10): USD 11.7M - 9 investors, led by VR Ventures, Notion Capital - Seed Round (2022-07-06): USD 5.1M - 8 investors\n  - Series B (2025-07-24): USD 29.1M - 3 investors, led by Singular - Seed Round (2023-07-01) ## Workforce\n- Employees: 92 (51-200 employees)\n  - Monthly Growth: +3.2%\n  - Yearly Growth: +64.6%\n- Key Executives: - Albert Malagarriga: Angel Investor\n  - Eduardo Salvo: Angel Investor\n  - Alison Imbert: Board Member   ...    - By Country: France: 85 (65%), Spain: 3 (2%), Germany: 2 (2%), United States: 1 (1%), United Arab Emirates: 1 (1%) - By Department: Sales: 32 (25%), Other Department: 28 (22%), Finance: 8 (6%), Technical: 7 (5%), General Management:   ...    - By Seniority: Specialist: 52 (40%), Other Management: 26 (20%), Manager: 6 (5%), Head: 3 (2%), Partner: 3 (2%),   ...    - Talent Sources: Glady (2), Welcome to the Jungle France (3), PayFit (3), Qonto (2), Giambattista Valli (1), Partech   ...    Banco de Crédito BCP (2), Positiva Compañía de Seguros (1), Kraaft France (1), PiperAI (1) - Active Job Postings: 24\n  - Job Posting Trends: Monthly: +9.1%, Quarterly: +26.3%, Yearly: +380.0% ### Open Positions (showing 10, 14 more available)\n- Finance Business Analyst - Intern (end of studies)   ...    insurance, insurtechpro, insurtech, startup, assurance professionnelle, multirisk, construction, professionals,   ...    - [2025-06-27] The French Tech Journal: 🇫🇷 French Tech Wire: Scaling, SaaS, and Spurs\n- [2025-06-24] - Tech.eu: Orus raises €25M to become Europeʼs one-stop shop for SMB insurance   ...    - [2026-01-21] 2025 was an amazing year for Orus. Not because of one specific achievement or metric but because   ...    26 comments) - [2026-01-06] 🚀 On recrute chez Orus | Paid Acquisition Manager (CDI – Paris) Connais-tu Orus ? L’incontournable Insurtech des TPE, PME et indépendants. (+40 000 clients, 41M€ levés, 4,9 sur Trustpilot) qui a un... (22 reactions)   ...    - [2025-10-02] 2"
+    ],
+    "highlight_scores": []
+  }],
+  "resolved_search_type": "",
+  "auto_date": null,
+  "context": null,
+  "output": null,
+  "statuses": null,
+  "cost_dollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    },
+    "contents": null
+  },
+  "search_time": 959.8
+}
