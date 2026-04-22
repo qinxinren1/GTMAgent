@@ -65,6 +65,7 @@ def response_to_json(response: SearchResponse[Any]) -> dict[str, Any]:
     return asdict(response)
 
 
+
 def main() -> None:
     p = argparse.ArgumentParser(description="Exa company search (Avery prospecting)")
     p.add_argument(

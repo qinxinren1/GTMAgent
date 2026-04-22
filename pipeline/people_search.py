@@ -1,256 +1,258 @@
 """
-Stage 2 — Surfe people by job title (no enrich)
+Stage 2 — Avery people search by company name
 
-1. Read Exa company JSON (stage1)
-2. Optional ICP filter on Exa entities
-3. For each company: ``POST /v2/people/search`` with ``companies.domains`` + ``people.jobTitles`` only
-4. Write JSON (people from Surfe: name, title, LinkedIn)
+For each company from stage1, calls the avery-search MCP server's
+search_people tool to find people matching target job titles.
 
-Env:
-  SURFE_API_KEY
-  SURFE_JOB_TITLES=Head of Talent,Recruiter,...  (optional; falls back to DEFAULT_JOB_TITLES)
+Usage:
+  python -m pipeline.people_search
+  python -m pipeline.people_search --titles "CEO" "CTO" "Head of HR" --limit 25
 """
 
 from __future__ import annotations
 
+import argparse
+import asyncio
 import json
 import os
-import time
-from dataclasses import asdict, dataclass, field
+import re
+from typing import Any
 
-import requests
 from dotenv import load_dotenv
+from mcp import ClientSession
+from mcp.client.stdio import StdioServerParameters, stdio_client
 
 load_dotenv()
 
-SURFE_API_KEY = os.environ.get("SURFE_API_KEY", "").strip()
-SURFE_BASE = "https://api.surfe.com/v2"
-HEADERS = {
-    "Authorization": f"Bearer {SURFE_API_KEY}",
-    "Content-Type": "application/json",
-}
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_OUTPUT_BASE = os.environ.get("AVERY_OUTPUT_DIR", os.path.join(_REPO_ROOT, "output"))
 
-# Used when SURFE_JOB_TITLES is unset (comma-separated in .env overrides)
-DEFAULT_JOB_TITLES = [
-    "Head of Talent",
-    "Head of Talent Acquisition",
-    "Talent Acquisition",
-    "Recruiter",
+STAGE1_JSON = os.path.join(_OUTPUT_BASE, "stage1_company_results.json")
+OUTPUT_JSON = os.path.join(_OUTPUT_BASE, "stage2_people_output.json")
+
+AVERY_MCP_URL = os.environ.get(
+    "AVERY_MCP_URL",
+    "https://search-mcp-production-a02b.up.railway.app/mcp",
+)
+AVERY_MCP_AUTH_TOKEN = os.environ.get("AVERY_MCP_AUTH_TOKEN", "")
+
+MCP_SERVER_PARAMS = StdioServerParameters(
+    command="npx",
+    args=[
+        "-y", "mcp-remote",
+        AVERY_MCP_URL,
+        "--header", f"Authorization: Bearer {AVERY_MCP_AUTH_TOKEN}",
+    ],
+)
+
+DEFAULT_TITLES = [
+    "CEO",
+    "CTO",
+    "Head of HR",
     "Head of People",
     "VP People",
+    "Chief People Officer",
 ]
 
-EU_COUNTRIES = {
-    "france", "germany", "netherlands", "sweden", "denmark", "finland",
-    "norway", "spain", "portugal", "belgium", "austria", "switzerland",
-    "ireland", "poland", "czechia", "czech republic", "estonia",
-    "latvia", "lithuania", "united kingdom",
-}
+EXCLUDED_ROLE_PATTERNS = [
+    r"\bintern\b",
+    r"\binternship\b",
+    r"\bstudent\b",
+    r"\btrainee\b",
+    r"\bpraktikant\b",
+    r"\bwerkstudent(?:in)?\b",
+    r"\bworking\s+student\b",
+    r"\balternant(?:e)?\b",
+    r"\bstagiaire\b",
+    r"\bapprentice?\b",
+]
 
-COMPANY_RESULTS_PATH = "output/stage1_company_results.json"
-PEOPLE_RESULTS_PATH = "output/stage2_people_output.json"
-
-
-def passes_icp(entity: dict) -> tuple[bool, str]:
-    props = entity.get("properties", {})
-    workforce = props.get("workforce") or {}
-    headcount = workforce.get("total")
-    if headcount is None:
-        return False, "unknown headcount"
-    if headcount < 20:
-        return False, f"too small ({headcount} employees)"
-    if headcount > 300:
-        return False, f"too large ({headcount} employees)"
-    hq = props.get("headquarters") or {}
-    country = (hq.get("country") or "").lower()
-    if country not in EU_COUNTRIES:
-        return False, f"not EU ({country})"
-    return True, "passes ICP"
+_EXCLUDED_RE = re.compile("|".join(EXCLUDED_ROLE_PATTERNS), re.IGNORECASE)
 
 
-def normalize_domain(domain: str) -> str:
-    d = (domain or "").strip().lower()
-    d = d.replace("https://", "").replace("http://", "")
-    return d.split("/")[0].rstrip("/")
+def _is_excluded(person: dict[str, Any]) -> bool:
+    role = (person.get("currentRole") or {}).get("role", "")
+    return bool(_EXCLUDED_RE.search(role))
 
 
-def _csv_env(name: str) -> list[str]:
-    raw = os.environ.get(name, "").strip()
-    if not raw:
-        return []
-    return [x.strip() for x in raw.split(",") if x.strip()]
+def _belongs_to_company(person: dict[str, Any], linkedin_id: str) -> bool:
+    if not linkedin_id:
+        return True
+    person_company_id = (person.get("currentRole") or {}).get("companyLinkedinId")
+    return person_company_id == linkedin_id
 
 
-def resolve_job_titles(job_titles: list[str] | None) -> list[str]:
-    """``None`` → env ``SURFE_JOB_TITLES`` or ``DEFAULT_JOB_TITLES``; ``[]`` → must set env or defaults apply."""
-    if job_titles is not None:
-        return list(job_titles)
-    env_titles = _csv_env("SURFE_JOB_TITLES")
-    return env_titles if env_titles else list(DEFAULT_JOB_TITLES)
+def load_companies(path: str = STAGE1_JSON) -> list[dict[str, Any]]:
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    return data.get("results", []) if isinstance(data, dict) else data
 
 
-def surfe_search_by_job_titles(
-    domain: str,
-    job_titles: list[str],
-    *,
-    limit_per_page: int = 100,
-    max_pages: int = 25,
-) -> list[dict]:
-    """Surfe v2: domain + ``people.jobTitles`` only; paginates with ``nextPageToken``."""
-    host = normalize_domain(domain)
-    if not host:
-        return []
-    if not job_titles:
-        print(f"    ⚠ No job titles configured; skip {host}")
-        return []
+def extract_company_meta(raw: dict[str, Any]) -> dict[str, str]:
+    """Pull (name, domain) from an Exa stage1 result item."""
+    url = raw.get("url", "")
+    domain = url.replace("https://", "").replace("http://", "").rstrip("/")
 
-    all_rows: list[dict] = []
-    page_token: str | None = None
-    people_block = {"jobTitles": job_titles}
-
-    for _ in range(max_pages):
-        payload: dict = {
-            "companies": {"domains": [host]},
-            "people": people_block,
-            "limit": min(max(limit_per_page, 1), 200),
-        }
-        if page_token:
-            payload["pageToken"] = page_token
-
-        try:
-            resp = requests.post(
-                f"{SURFE_BASE}/people/search",
-                headers=HEADERS,
-                json=payload,
-                timeout=30,
-            )
-        except Exception as e:
-            print(f"    ⚠ Surfe search exception: {e}")
-            break
-
-        if resp.status_code not in (200, 201):
-            print(f"    ⚠ Surfe search error {resp.status_code}: {(resp.text or '')[:600]}")
-            break
-
-        data = resp.json()
-        batch = data.get("people") or []
-        for p in batch:
-            all_rows.append(p)
-            print(
-                f"    Found: {p.get('firstName')} {p.get('lastName')} — {p.get('jobTitle')}"
-            )
-
-        page_token = (data.get("nextPageToken") or "").strip() or None
-        if not page_token:
-            break
-        time.sleep(0.35)
-
-    if not all_rows:
-        print(f"    No people returned for {host}")
-    return all_rows
-
-
-@dataclass
-class PersonHit:
-    first_name: str = ""
-    last_name: str = ""
-    job_title: str = ""
-    linkedin_url: str = ""
-
-
-@dataclass
-class CompanyPeople:
-    company_name: str
-    domain: str
-    hq_city: str
-    hq_country: str
-    headcount: int
-    icp_reason: str
-    people: list[PersonHit] = field(default_factory=list)
-
-
-def run_people(
-    input_path: str = COMPANY_RESULTS_PATH,
-    output_path: str = PEOPLE_RESULTS_PATH,
-    *,
-    job_titles: list[str] | None = None,
-) -> list[CompanyPeople]:
-    if not SURFE_API_KEY:
-        raise ValueError("Set SURFE_API_KEY env var")
-
-    titles = resolve_job_titles(job_titles)
-    print(f"[Surfe] jobTitles ({len(titles)}): {titles[:8]}{'…' if len(titles) > 8 else ''}")
-
-    parent = os.path.dirname(output_path)
-    if parent:
-        os.makedirs(parent, exist_ok=True)
-
-    with open(input_path) as f:
-        exa_results = json.load(f)
-
-    if isinstance(exa_results, dict):
-        results = exa_results.get("results", [])
+    entities = raw.get("entities") or []
+    if entities:
+        name = entities[0].get("properties", {}).get("name") or raw.get("title", domain)
     else:
-        results = exa_results
+        name = raw.get("title", domain)
 
-    print(f"\n[Stage 2] {len(results)} Exa rows\n")
+    return {"name": name, "domain": domain}
 
-    out: list[CompanyPeople] = []
 
-    for item in results:
-        entities = item.get("entities") or []
-        if not entities:
-            continue
 
-        entity = entities[0]
-        props = entity.get("properties", {})
-        name = props.get("name", item.get("title", "?"))
-
-        ok, reason = passes_icp(entity)
-        if not ok:
-            print(f"  ✗ {name:<30} {reason}")
-            continue
-
-        hq = props.get("headquarters") or {}
-        workforce = props.get("workforce") or {}
-        headcount = int(workforce.get("total") or 0)
-
-        url = item.get("url", "")
-        domain = url.replace("https://", "").replace("http://", "").rstrip("/")
-
-        print(f"  ✓ {name:<30} {headcount} ppl | {domain}")
-
-        raw = surfe_search_by_job_titles(domain, titles)
-        hits = [
-            PersonHit(
-                first_name=p.get("firstName", ""),
-                last_name=p.get("lastName", ""),
-                job_title=p.get("jobTitle", ""),
-                linkedin_url=p.get("linkedInUrl") or p.get("linkedinUrl") or "",
-            )
-            for p in raw
-        ]
-
-        out.append(
-            CompanyPeople(
-                company_name=name,
-                domain=domain,
-                hq_city=hq.get("city") or "",
-                hq_country=hq.get("country") or "",
-                headcount=headcount,
-                icp_reason=reason,
-                people=hits,
-            )
+async def resolve_linkedin_id(
+    session: ClientSession,
+    name: str,
+    domain: str,
+) -> str:
+    """Call search_companies with the domain (or name) to get the LinkedIn ID."""
+    query = domain or name
+    try:
+        result = await session.call_tool(
+            "search_companies", arguments={"query": query, "limit": 3}
         )
-        time.sleep(1.0)
+        raw = json.loads(result.content[0].text if result.content else "{}")
+        companies = raw.get("companies", [])
+        if companies:
+            return companies[0].get("linkedInId", "")
+    except Exception as exc:
+        print(f"    ⚠ resolve linkedInId for {name}: {exc}")
+    return ""
 
+
+async def _fetch_page(
+    session: ClientSession,
+    company_name: str,
+    linkedin_id: str = "",
+    page: int = 1,
+) -> tuple[list[dict[str, Any]], int, bool]:
+    """Fetch one page (up to 100) of people. Returns (people, total, has_more)."""
+    arguments: dict[str, Any] = {
+        "onlyCurrentExperience": True,
+        "limit": 100,
+        "page": page,
+        "view": "summary",
+    }
+    if linkedin_id:
+        arguments["companies"] = [{"name": company_name, "linkedInId": linkedin_id}]
+    else:
+        arguments["companyKeywords"] = [company_name]
+        arguments["exactCompanyMatch"] = True
+
+    result = await session.call_tool("search_people", arguments=arguments)
+
+    raw_text = result.content[0].text if result.content else "{}"
+    if os.environ.get("DEBUG"):
+        print(f"    [debug] page {page}: {raw_text[:300]}")
+    data = json.loads(raw_text)
+
+    people = data.get("people", [])
+    pagination = data.get("pagination", {})
+    total = pagination.get("totalResults", len(people))
+    has_more = pagination.get("hasMore", False)
+    return people, total, has_more
+
+
+async def search_all_people(
+    session: ClientSession,
+    company_name: str,
+    linkedin_id: str = "",
+) -> tuple[list[dict[str, Any]], int]:
+    """Fetch ALL people at a company by auto-paginating. Returns (all_people, total)."""
+    all_people: list[dict[str, Any]] = []
+    page = 1
+
+    while True:
+        people, total, has_more = await _fetch_page(session, company_name, linkedin_id, page)
+        all_people.extend(people)
+        if not has_more or not people:
+            break
+        page += 1
+
+    return all_people, total
+
+
+async def run_people_async(
+    input_path: str = STAGE1_JSON,
+    output_path: str = OUTPUT_JSON,
+    job_titles: list[str] | None = None,
+) -> list[dict[str, Any]]:
+    companies = load_companies(input_path)
+    effective_titles = job_titles or DEFAULT_TITLES
+
+    print(f"[Stage 2 / Avery] {len(companies)} companies")
+    print(f"  Job titles: {effective_titles}\n")
+
+    out: list[dict[str, Any]] = []
+
+    async with stdio_client(MCP_SERVER_PARAMS) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+
+            for raw in companies:
+                meta = extract_company_meta(raw)
+                name, domain = meta["name"], meta["domain"]
+
+                li_id = await resolve_linkedin_id(session, name, domain)
+                if li_id:
+                    print(f"  {name} ({domain}): linkedInId={li_id}")
+                else:
+                    print(f"  {name} ({domain}): no linkedInId, falling back to companyKeywords")
+
+                try:
+                    people, total = await search_all_people(session, name, li_id)
+                    print(f"    fetched {len(people)} people (total {total})")
+                except Exception as exc:
+                    print(f"  ⚠ {name}: {exc}")
+                    people, total = [], 0
+
+                matched = [p for p in people if _belongs_to_company(p, li_id)]
+                if len(matched) < len(people):
+                    print(f"    company filter: {len(people)} → {len(matched)} (removed {len(people) - len(matched)} wrong company)")
+                filtered = [p for p in matched if not _is_excluded(p)]
+                if len(filtered) < len(matched):
+                    print(f"    role filter: excluded {len(matched) - len(filtered)} (intern/student/trainee)")
+
+                out.append({
+                    "company": name,
+                    "domain": domain,
+                    "total_in_avery": total,
+                    "people": filtered,
+                })
+
+    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump([asdict(x) for x in out], f, indent=2, ensure_ascii=False)
+        json.dump(out, f, indent=2, ensure_ascii=False)
 
-    n_people = sum(len(x.people) for x in out)
-    print(f"\n{'=' * 50}\nDone: {len(out)} companies, {n_people} people → {output_path}\n")
+    n_people = sum(len(x["people"]) for x in out)
+    print(f"\nDone: {len(out)} companies, {n_people} people → {output_path}")
     return out
 
 
+def run_people(
+    input_path: str = STAGE1_JSON,
+    output_path: str = OUTPUT_JSON,
+    job_titles: list[str] | None = None,
+) -> list[dict[str, Any]]:
+    return asyncio.run(run_people_async(input_path, output_path, job_titles))
+
+
+def main() -> None:
+    p = argparse.ArgumentParser(description="Avery people search (stage 2)")
+    p.add_argument("--input", "-i", default=STAGE1_JSON)
+    p.add_argument("--output", "-o", default=OUTPUT_JSON)
+    p.add_argument("--titles", "-t", nargs="+", default=None, metavar="TITLE")
+    args = p.parse_args()
+
+    run_people(
+        input_path=args.input,
+        output_path=args.output,
+        job_titles=args.titles,
+    )
+
+
 if __name__ == "__main__":
-    run_people()
+    main()
