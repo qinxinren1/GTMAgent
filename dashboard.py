@@ -56,15 +56,11 @@ def main() -> None:
     companies = sorted(set(d["company"] for d in data))
     sel_companies = st.sidebar.multiselect("Company", companies, default=companies)
 
-    chains = sorted(set(d.get("chain", "") for d in data))
-    sel_chains = st.sidebar.multiselect("Chain", chains, default=chains)
-
     sel_response = st.sidebar.multiselect("Response", RESPONSE_OPTIONS, default=RESPONSE_OPTIONS)
 
     filtered = [
         d for d in data
         if d["company"] in sel_companies
-        and d.get("chain", "") in sel_chains
         and d.get("response", "none") in sel_response
     ]
 
@@ -92,23 +88,22 @@ def main() -> None:
 
     # --- Overview table ---
     st.subheader("Prospect Overview")
-    header_cols = st.columns([2, 2, 1.5, 1, 1.5, 1.5, 1, 1, 1])
-    for col, label in zip(header_cols, ["Name", "Role", "Company", "Chain", "Email", "LinkedIn", "LI", "Email", "Response"]):
+    header_cols = st.columns([2, 2, 1.5, 1.5, 1.5, 1, 1, 1])
+    for col, label in zip(header_cols, ["Name", "Role", "Company", "Email", "LinkedIn", "LI", "Email", "Response"]):
         col.markdown(f"**{label}**")
     for d in filtered:
         li_status = [d.get("status", {}).get(k, "draft") for k in MSG_KEYS[:3]]
         em_status = [d.get("status", {}).get(k, "draft") for k in MSG_KEYS[3:]]
-        row = st.columns([2, 2, 1.5, 1, 1.5, 1.5, 1, 1, 1])
+        row = st.columns([2, 2, 1.5, 1.5, 1.5, 1, 1, 1])
         row[0].write(d.get("name", ""))
         row[1].write(d.get("role", ""))
         row[2].write(d.get("company", ""))
-        row[3].write(d.get("chain", ""))
-        row[4].write(d.get("email", "") or "—")
+        row[3].write(d.get("email", "") or "—")
         li_url = d.get("linkedin", "")
-        row[5].markdown(f"[Profile]({li_url})" if li_url else "—")
-        row[6].write(f"{sum(1 for s in li_status if s == 'sent')}/3")
-        row[7].write(f"{sum(1 for s in em_status if s == 'sent')}/3")
-        row[8].write(d.get("response", "none"))
+        row[4].markdown(f"[Profile]({li_url})" if li_url else "—")
+        row[5].write(f"{sum(1 for s in li_status if s == 'sent')}/3")
+        row[6].write(f"{sum(1 for s in em_status if s == 'sent')}/3")
+        row[7].write(d.get("response", "none"))
 
     st.divider()
 
@@ -131,7 +126,6 @@ def main() -> None:
         st.markdown(f"Role: {prospect['role']}")
         st.markdown(f"Company: {prospect['company']} ({prospect['domain']})")
         st.markdown(f"City: {prospect.get('city', '—')}")
-        st.markdown(f"Chain: `{prospect.get('chain', '—')}`")
         if prospect.get("linkedin"):
             st.markdown(f"[LinkedIn Profile]({prospect['linkedin']})")
         st.markdown(f"Email: `{prospect.get('email') or '—'}`")
