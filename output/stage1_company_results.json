@@ -1,56 +1,422 @@
 {
-  "results": [    {
-    "url": "https://orus.eu/",
-    "id": "https://exa.ai/library/company/orus-insurance",
-    "title": "Orus",
-    "score": null,
-    "published_date": "2026-02-20T00:00:00.000Z",
-    "author": "Exa",
-    "image": "https://media.licdn.com/dms/image/v2/D4D0BAQGEJNY5Sg1MUA/company-logo_200_200/company-logo_200_200/0/1738137455129/orus_insurance_logo?e=2147483647&v=beta&t=vlc8V2ST0oaBBQtMGq9kjuiaZF6YP5RjQ2S4mXCAdQs",
-    "favicon": null,
-    "subpages": null,
-    "extras": null,
-    "entities": [
-      {
-        "id": "https://exa.ai/library/company/orus-insurance",
-        "type": "company",
-        "version": 1,
-        "properties": {
-          "name": "Orus",
-          "founded_year": 2022,
-          "description": "We are on a mission to offer simple, affordable, and tailored insurance coverage to European SMBs to give them the peace of mind to focus on what matters. \n\nWe want to revolutionize the way SMBs interact with insurance with great UX, total transparency, prevention and assistance.",
-          "workforce": {
-            "total": 92
-          },
-          "headquarters": {
-            "address": null,
-            "city": "Paris",
-            "postal_code": null,
-            "country": "France"
-          },
-          "financials": {
-            "revenue_annual": 3100000,
-            "funding_total": 45855810,
-            "funding_latest_round": {
-              "name": "Series B",
-              "date": "2025-07-24",
-              "amount": 29100000
+  "results": [
+    {
+      "url": "https://orus.eu/",
+      "id": "https://exa.ai/library/company/orus-insurance",
+      "title": "Orus",
+      "score": null,
+      "published_date": "2026-02-20T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/D4D0BAQGEJNY5Sg1MUA/company-logo_200_200/company-logo_200_200/0/1738137455129/orus_insurance_logo?e=2147483647&v=beta&t=vlc8V2ST0oaBBQtMGq9kjuiaZF6YP5RjQ2S4mXCAdQs",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/orus-insurance",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "Orus",
+            "founded_year": 2022,
+            "description": "We are on a mission to offer simple, affordable, and tailored insurance coverage to European SMBs to give them the peace of mind to focus on what matters. \n\nWe want to revolutionize the way SMBs interact with insurance with great UX, total transparency, prevention and assistance.",
+            "workforce": {
+              "total": 92
+            },
+            "headquarters": {
+              "address": null,
+              "city": "Paris",
+              "postal_code": null,
+              "country": "France"
+            },
+            "financials": {
+              "revenue_annual": 3100000,
+              "funding_total": 45855810,
+              "funding_latest_round": {
+                "name": "Series B",
+                "date": "2025-07-24",
+                "amount": 29100000
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 76685
             }
-          },
-          "web_traffic": {
-            "visits_monthly": 76685
           }
         }
-      }
-    ],
-    "crawl_date": null,
-    "text": null,
-    "summary": null,
-    "highlights": [
-      "Orus is a Insurance company. Orus employs 92 people (+64.6% YoY, +51 people) and has an annual revenue of $3.1M, founded in 2022. Headquartered in Paris, France, operates in 5 countries (including Spain, Germany, United States, and United Arab Emirates). Has $45.9M in total funding, most recently a Series B in July 2025, with 3 prior funding rounds.   ...    - Homepage: orus.eu\n- Status: active\n- Ownership: Private\n- Aliases: orus, orus (france), orus sas   ...    - Phone: 21006562, 01 89 71 63 04, +33 01 89 71 63 04 ## Financials\n- Annual Revenue: USD 3,100,000\n- Total Funding: USD 45,855,810 - Series A (2023-10-10): USD 11.7M - 9 investors, led by VR Ventures, Notion Capital - Seed Round (2022-07-06): USD 5.1M - 8 investors\n  - Series B (2025-07-24): USD 29.1M - 3 investors, led by Singular - Seed Round (2023-07-01) ## Workforce\n- Employees: 92 (51-200 employees)\n  - Monthly Growth: +3.2%\n  - Yearly Growth: +64.6%\n- Key Executives: - Albert Malagarriga: Angel Investor\n  - Eduardo Salvo: Angel Investor\n  - Alison Imbert: Board Member   ...    - By Country: France: 85 (65%), Spain: 3 (2%), Germany: 2 (2%), United States: 1 (1%), United Arab Emirates: 1 (1%) - By Department: Sales: 32 (25%), Other Department: 28 (22%), Finance: 8 (6%), Technical: 7 (5%), General Management:   ...    - By Seniority: Specialist: 52 (40%), Other Management: 26 (20%), Manager: 6 (5%), Head: 3 (2%), Partner: 3 (2%),   ...    - Talent Sources: Glady (2), Welcome to the Jungle France (3), PayFit (3), Qonto (2), Giambattista Valli (1), Partech   ...    Banco de Crédito BCP (2), Positiva Compañía de Seguros (1), Kraaft France (1), PiperAI (1) - Active Job Postings: 24\n  - Job Posting Trends: Monthly: +9.1%, Quarterly: +26.3%, Yearly: +380.0% ### Open Positions (showing 10, 14 more available)\n- Finance Business Analyst - Intern (end of studies)   ...    insurance, insurtechpro, insurtech, startup, assurance professionnelle, multirisk, construction, professionals,   ...    - [2025-06-27] The French Tech Journal: 🇫🇷 French Tech Wire: Scaling, SaaS, and Spurs\n- [2025-06-24] - Tech.eu: Orus raises €25M to become Europeʼs one-stop shop for SMB insurance   ...    - [2026-01-21] 2025 was an amazing year for Orus. Not because of one specific achievement or metric but because   ...    26 comments) - [2026-01-06] 🚀 On recrute chez Orus | Paid Acquisition Manager (CDI – Paris) Connais-tu Orus ? L’incontournable Insurtech des TPE, PME et indépendants. (+40 000 clients, 41M€ levés, 4,9 sur Trustpilot) qui a un... (22 reactions)   ...    - [2025-10-02] 2"
-    ],
-    "highlight_scores": []
-  }],
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "Orus is a Insurance company. Orus employs 92 people (+64.6% YoY, +51 people) and has an annual revenue of $3.1M, founded in 2022. Headquartered in Paris, France, operates in 5 countries (including Spain, Germany, United States, and United Arab Emirates). Has $45.9M in total funding, most recently a Series B in July 2025, with 3 prior funding rounds.   ...    - Homepage: orus.eu\n- Status: active\n- Ownership: Private\n- Aliases: orus, orus (france), orus sas   ...    - Phone: 21006562, 01 89 71 63 04, +33 01 89 71 63 04 ## Financials\n- Annual Revenue: USD 3,100,000\n- Total Funding: USD 45,855,810 - Series A (2023-10-10): USD 11.7M - 9 investors, led by VR Ventures, Notion Capital - Seed Round (2022-07-06): USD 5.1M - 8 investors\n  - Series B (2025-07-24): USD 29.1M - 3 investors, led by Singular - Seed Round (2023-07-01) ## Workforce\n- Employees: 92 (51-200 employees)\n  - Monthly Growth: +3.2%\n  - Yearly Growth: +64.6%\n- Key Executives: - Albert Malagarriga: Angel Investor\n  - Eduardo Salvo: Angel Investor\n  - Alison Imbert: Board Member   ...    - By Country: France: 85 (65%), Spain: 3 (2%), Germany: 2 (2%), United States: 1 (1%), United Arab Emirates: 1 (1%) - By Department: Sales: 32 (25%), Other Department: 28 (22%), Finance: 8 (6%), Technical: 7 (5%), General Management:   ...    - By Seniority: Specialist: 52 (40%), Other Management: 26 (20%), Manager: 6 (5%), Head: 3 (2%), Partner: 3 (2%),   ...    - Talent Sources: Glady (2), Welcome to the Jungle France (3), PayFit (3), Qonto (2), Giambattista Valli (1), Partech   ...    Banco de Crédito BCP (2), Positiva Compañía de Seguros (1), Kraaft France (1), PiperAI (1) - Active Job Postings: 24\n  - Job Posting Trends: Monthly: +9.1%, Quarterly: +26.3%, Yearly: +380.0% ### Open Positions (showing 10, 14 more available)\n- Finance Business Analyst - Intern (end of studies)   ...    insurance, insurtechpro, insurtech, startup, assurance professionnelle, multirisk, construction, professionals,   ...    - [2025-06-27] The French Tech Journal: 🇫🇷 French Tech Wire: Scaling, SaaS, and Spurs\n- [2025-06-24] - Tech.eu: Orus raises €25M to become Europeʼs one-stop shop for SMB insurance   ...    - [2026-01-21] 2025 was an amazing year for Orus. Not because of one specific achievement or metric but because   ...    26 comments) - [2026-01-06] 🚀 On recrute chez Orus | Paid Acquisition Manager (CDI – Paris) Connais-tu Orus ? L’incontournable Insurtech des TPE, PME et indépendants. (+40 000 clients, 41M€ levés, 4,9 sur Trustpilot) qui a un... (22 reactions)   ...    - [2025-10-02] 2"
+      ],
+      "highlight_scores": []
+    },
+    {
+      "url": "https://zama.org/",
+      "id": "https://exa.ai/library/company/zama-ai",
+      "title": "Zama",
+      "score": null,
+      "published_date": "2026-02-23T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/C560BAQGFOgyxQvt6Ig/company-logo_200_200/company-logo_200_200/0/1630639582928/zama_ai_logo?e=2147483647&v=beta&t=gv_4HmZx0yGOw3lsfPMMcFbO2Xp3QxSQdZLNYlFJPlY",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/zama-ai",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "Zama",
+            "founded_year": 2020,
+            "description": "We believe people should not care about privacy. Not because it doesn't matter, but because it shouldn't be an issue!\n\nFrom data breaches and surveillance of cloud applications, to blockchain smart contracts where everything is public, doing things privately online is becoming increasingly complicated. The only way to solve this is to make everything encrypted end-to-end, regardless of where the application is running. And the only way this can happen is if homomorphic encryption becomes mainstream.\n\nWe are a remote-friendly company with headquarters in the centre of Paris.",
+            "workforce": {
+              "total": 56
+            },
+            "headquarters": {
+              "address": null,
+              "city": "Paris",
+              "postal_code": null,
+              "country": "France"
+            },
+            "financials": {
+              "revenue_annual": 8200000,
+              "funding_total": 139272392,
+              "funding_latest_round": {
+                "name": "Series B",
+                "date": "2025-07-25",
+                "amount": 57000000
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 57834
+            }
+          }
+        }
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "is an open source cryptography company that builds state-of-the-art Fully Homomorphic Encryption (FHE) solutions for blockchain and AI. Zama employs 56 people (+39.1% YoY) and has an annual revenue of $8.2M, founded in 2020. Headquartered in Paris, France, operates in 16 countries (including United Kingdom, Switzerland, Spain, Portugal, and Belgium). Has $139.3M in total funding, most recently a Series B in July 2025, with 4   ...    - Founded Year: 2020\n- Homepage: zama.org\n- Status: active\n- Ownership: Private   ...    ## Financials\n- Annual Revenue: USD 8,200,000\n- Total Funding: USD 139,272,392 - Venture Round (2022-03-01) - 3 investors, led by Protocol Labs - Pre Seed Round (2020-04-01): USD 1.1M - 2 investors\n  - Seed Round (2021-06-15): USD 7.8M - 3 investors - Series A (2024-03-07): USD 73.4M - 13 investors, led by Protocol Labs, Multicoin Capital - Series B (2025-07-25): USD 57.0M - 4 investors, led by Pantera Capital, Blockchange Ventures - Acquired Kakarot Labs ## Workforce\n- Employees: 56 (51-200 employees)\n  - Monthly Growth: +3.4%\n  - Yearly Growth: +39.1%\n- Key Executives: - Arik Galansky: Chief Product Officer (joined Jan 2026) - Jérémy Zaccherini: Chief Marketing Officer (joined Dec 2025)\n  - Genia S: Operating Partner (joined Dec 2025)   ...    - By Country: France: 28 (13%), United Kingdom: 5 (2%), Switzerland: 4 (2%), Spain: 4 (2%), Portugal: 2 (1%),   ...    - By Department: Technical: 25 (12%), Other Department: 12 (6%), General Management: 9 (4%), Research: 3 (1%),   ...    - By Seniority: Specialist: 22 (10%), Other Management: 11 (5%), Senior: 10 (5%), C-Level: 4 (2%), Director: 4 (2%),   ...    - Salary Ranges:\n  - Operations: EUR 99,688/year\n  - Senior Software Engineer: EUR 94,076/year   ...    - [2025-09-11] roarmag.org: Dalom C1T-El41 Carburetor Kit For Zama 435 435E 440 440E - [2025-08-28] PYMNTS.com: Europe Produces 12 ‘Unicorn’ Startups Thus Far in 2025   ...    - [2026-02-07] In 2025, PL team Zama not only grabbed the title of FHE’s first unicorn after their series"
+      ],
+      "highlight_scores": []
+    },
+    {
+      "url": "https://aikido.dev/",
+      "id": "https://exa.ai/library/company/aikido-security",
+      "title": "Aikido Security",
+      "score": null,
+      "published_date": "2026-02-23T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/D4D0BAQEW1KmOddUqzg/company-logo_200_200/B4DZbUGckPGUAM-/0/1747315182642/aikido_security_logo?e=2147483647&v=beta&t=_firFxj6__dyT_H4ElbaR1I2HY_y_HFHuG7Vka7cKLU",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/aikido-security",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "Aikido Security",
+            "founded_year": 2022,
+            "description": "From vulnerability management to penetration testing, secure everything you build, host, and run with Aikido. Your software security HQ. \n\nBuilt for teams of any size, Aikido helps organizations ship secure software –trusted by Revolut, Deel, The Premier League, Tines, n8n, SoundCloud, and 50k more organizations.\n\nAikido gets developers back to building.",
+            "workforce": {
+              "total": 129
+            },
+            "headquarters": {
+              "address": null,
+              "city": null,
+              "postal_code": null,
+              "country": "Belgium"
+            },
+            "financials": {
+              "revenue_annual": 700000,
+              "funding_total": 84605638,
+              "funding_latest_round": {
+                "name": "Series B",
+                "date": "2026-01-01",
+                "amount": 60000000
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 426084
+            }
+          }
+        }
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "Aikido Security is a Software Development company. Aikido Security employs 129 people (+196.8% YoY, +124 people) and has an annual revenue of $700.0K, founded in 2022. Headquartered in Belgium, operates in 20 countries (including United States, United Kingdom, Armenia, Romania, and Netherlands). Has $84.6M in total funding, most recently a Series B in January 2026, with 4 prior funding rounds. Recently acquired Allseek BV and Haicker SA.   ...    - Status: active\n- Ownership: Private\n- Aliases: aikido security, aikido security bv   ...    ## Financials\n- Annual Revenue: USD 700,000\n- Total Funding: USD 84,605,638 - Series A (2024-05-01): USD 17.0M - 3 investors, led by Singular\n  - Series B - 24 investors, led by DST Global - Seed Round (2023-11-14): USD 5.4M - 4 investors, led by Notion Capital, Connect Ventures - Series B (2026-01-01): USD 60.0M - 2 investors\n  - Pre Seed Round (2023-01-19): USD 2.2M - 7 investors - Acquired Allseek BV (2025-09-01)\n- Acquired Haicker SA (2025-09-01)\n- Acquired Trag (2025-08-21) - Acquired Trag (2025-08-01)\n- Acquired Allseek ## Workforce\n- Employees: 129 (51-200 employees)\n  - Monthly Growth: +8.7%\n  - Yearly Growth: +196.8% - Key Executives:\n  - Abdelilah Takhrifa: Regional Director - Middle East (joined Jan 2026)   ...    - By Country: Belgium: 48 (26%), United States: 27 (14%), United Kingdom: 16 (9%), Armenia: 6 (3%), Romania: 6 (3%), Netherlands: 5 (3%), Germany: 3 (2%), Singapore: 3 (2%), Spain: 2 (1%), Switzerland: 2 (1%) (+10 more) - By Department: Sales: 38 (20%), Other Department: 30 (16%), Technical: 30 (16%), Finance: 7 (4%), Design: 5 (3%),   ...    - By Seniority: Specialist: 80 (43%), Other Management: 26 (14%), Manager: 8 (4%), Senior: 8 (4%), Head: 3 (2%),   ...    - Talent Sources: Secure Code Warrior (2), Allseek (2), Cheqroom (3), Haicker (2), Picsart (2), Intigriti (3),   ...    Detection (1), Bright Data (1), n8n (1), Notion Capital (2), atmio (1) - Active Job Postings: 34\n  - Job Posting Trends: Monthly: -17.1%, Quarterly: +21.4%, Yearly: +240.0% ### Open Positions (showing 10, 24 more available)\n- Channel Sales Manager\n- Developer content writer   ...    - [2025-08-21] Government Info Security: Aikido Security Buys AI Code Startup Trag to Outpace Rivals   ...    - [2024-05-26] Tech Funding News: Aikido Security lands $17M to globalise its expand security platform for developers   ...    - [2026-02-22] We're"
+      ],
+      "highlight_scores": []
+    },
+    {
+      "url": "https://tomorro.com/",
+      "id": "https://exa.ai/library/company/getairflow",
+      "title": "Tomorro",
+      "score": null,
+      "published_date": "2026-02-23T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/D4E0BAQEBZiKFm4LuBA/company-logo_200_200/company-logo_200_200/0/1701899109666/getleeway_logo?e=2147483647&v=beta&t=tA9PoVRm0GHV0ZI3fyhFuCAwNB-7CPNGnlP9bQIUWO4",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/getairflow",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "Tomorro",
+            "founded_year": 2020,
+            "description": "We believe that contracts are the starting points and that it should be a memorable experience.\n\nWe unlock the full potential of businesses by empowering legal & business teams to move faster, smarter & safer.\n\nThe preferred legal AI solution of 2,000+ companies for generating, negotiating, signing, and tracking their contracts.",
+            "workforce": {
+              "total": 111
+            },
+            "headquarters": {
+              "address": null,
+              "city": "Paris",
+              "postal_code": null,
+              "country": "France"
+            },
+            "financials": {
+              "revenue_annual": null,
+              "funding_total": null,
+              "funding_latest_round": {
+                "name": "Series B",
+                "date": "2025-05-01",
+                "amount": 27000000
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 30567
+            }
+          }
+        }
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "Tomorro is a Technology, Information and Internet company. Tomorro is a software company that helps companies reduce   ...    Intelligence. Tomorro employs 111 people (+73.3% YoY, +55 people), founded in 2020. Headquartered in Paris, Île-de-France, France, with presence in Germany, Netherlands, and United States. Last round was a Series B in May 2025, with 3 prior funding rounds.   ...    - Headquarters: Paris, France\n- Founded Year: 2020\n- Homepage: tomorro.com\n- Status: active\n- Ownership: Private   ...    - NAICS Codes: 51, 517 ## Financials\n- Funding Rounds (4):\n  - Seed Round (2021-03-31): USD 4.2M - 4 investors, led by henQ - Series A (2023-12-07): USD 11.9M - 5 investors, led by Resonance - Series B (2025-05-01): USD 27.0M - 8 investors, led by XAnge, Acton Capital - Venture Round (2025-03-01): EUR 25.0M - 8 investors ## Workforce\n- Employees: 111 (51-200 employees)\n  - Monthly Growth: +2.4%\n  - Yearly Growth: +73.3%\n- Key Executives: - Theiss Boudec: CPO (joined Oct 2025)\n  - Janosch Kociok: Founding Account Executive (joined Oct 2025) - Theiss Boudec: CPO (joined Nov 2025)\n  - Olivier Bonnet: Angel Investor\n  - Jan Andriessen: Board Member - Maxime Le Dantec: Board Member\n  - Jérôme B: Chief Revenue Officer (CRO)\n  - Matthieu Alcaro: Founding Engineer - Sebastien Lefrant: Chief People Officer\n  - Alexis Du Peloux: Board Member\n- Breakdown: - By Country: France: 106 (82%), Germany: 2 (2%), Netherlands: 2 (2%), United States: 1 (1%) - By Department: Sales: 31 (24%), Customer Service: 18 (14%), Technical: 18 (14%), Other Department: 12 (9%), General   ...    - By Seniority: Specialist: 63 (48%), Senior: 13 (10%), Manager: 12 (9%), Other Management: 12 (9%), Partner: 5 (4%),   ...    - [2025-04-01] FinSMEs: Tomorro Raises €25M in Funding\n- [2025-03-31]   ...    - StartupMafia - News from startup industry: Tomorro Raises €25 Million to Revolutionize Contract Management Across   ...    - [2026-02-06] - Deuxième vague d’arrivée de l’année chez Tomorro ! Nous sommes heureux d"
+      ],
+      "highlight_scores": []
+    },
+    {
+      "url": "https://cozero.io/",
+      "id": "https://exa.ai/library/company/cozero-io",
+      "title": "Cozero",
+      "score": null,
+      "published_date": "2026-02-24T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/C4D0BAQGkpvwIXWu1-g/company-logo_200_200/company-logo_200_200/0/1638439865071/cozero_io_logo?e=2147483647&v=beta&t=IkJHFgvg6W-w8XJuyB2Bdpn8vLCPPgXIjmMqR8uqZuo",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/cozero-io",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "Cozero",
+            "founded_year": 2020,
+            "description": "Take control of your corporate emission data with Cozero's digital Climate Action Platform (CAP). Cozero tracks, optimizes, and engages on your carbon performance. Forget endless excel files & project sounding boards. Cozero digitally unites all carbon management data in one end-to-end platform, so that you can easily keep track - and act. Customize your climate action platform for your industry and company. Get smart on your carbon emissions and take the right decisions. \n\nCozero was founded in 2020 with the purpose to enable the corporate sector in a transformational shift to a lower emission economy. We strongly believe that the private sector has the potential to make this transformation possible and to fight climate change effectively. \n\nWhoever you are - be it a business leader, a climate action enthusiast, a potential low carbon service or technology partner or a motivated individual who wants to join our mission - please reach out and get on board: info@cozero.io",
+            "workforce": {
+              "total": 53
+            },
+            "headquarters": {
+              "address": null,
+              "city": "Berlin",
+              "postal_code": null,
+              "country": "Germany"
+            },
+            "financials": {
+              "revenue_annual": null,
+              "funding_total": 6903708,
+              "funding_latest_round": {
+                "name": "Series A",
+                "date": "2024-04-16",
+                "amount": 6903708
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 6662
+            }
+          }
+        }
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "footprint. Cozero employs 53 people (+3.2% YoY, +2 people), founded in 2020. Headquartered in Berlin, Germany, operates in 9 countries (including Portugal, Netherlands, Spain, Italy, and Finland). Has $6.9M in total funding, most recently a Series A in April 2024.   ...    ## Company Details\n- Industry: Software Development\n- Type: Public Company\n- Headquarters: Berlin, Germany - Founded Year: 2020\n- Homepage: cozero.io\n- Status: active\n- Aliases: cozero, cozero (germany), cozero gmbh - LinkedIn: linkedin.com/company/cozero-io\n- Linkedin Followers: 9,097 (Monthly: +1.9%)\n- Emails: info@cozero.io - Phone: +49 30 78096249 ## Financials\n- Total Funding: USD 6,903,708 - Series A (2024-04-16): USD 6.9M - 7 investors, led by Kvanted Ventures, EnBW New Ventures ## Workforce\n- Employees: 53\n  - Monthly Growth: -8.6%\n  - Yearly Growth: +3.2%\n- Key Executives: - Natalia De Lavalle Serrano: Talent Acquisition Partner (joined Oct 2025) - Patrick Schmitt: Climate Lead (joined Dec 2025)\n  - Anya Chodosh: Climate Lead\n  - Maria Wasastjerna: Board Member - Thomas Fuster: Board Member\n  - Nicolas Peters: Angel Investor\n  - Melanie Bild: Board Member\n- Breakdown: - By Country: Germany: 39 (61%), Portugal: 4 (6%), Netherlands: 2 (3%), Spain: 2 (3%), Italy: 2 (3%), Finland: 1   ...    - By Department: Other Department: 11 (17%), Technical: 11 (17%), Sales: 6 (9%), Research: 5 (8%), General   ...    - By Seniority: Specialist: 21 (33%), Senior: 15 (23%), Other Management: 6 (9%), Partner: 5 (8%), Head: 3 (5%), Manager: 2 (3%), Director: 1 (2%) - Salary Ranges:\n  - Software Engineer: EUR 48,328/year\n  - Senior Software Engineer: EUR 55,580/year   ...    European Space Agency - ESA (1), EnBW New Ventures (1), Pathzero (2), We-Building e.V. (1) - Active Job Postings: 4\n  - Job Posting Trends: Monthly: +100.0%, Quarterly: +100.0%, Yearly: -78.9% ### Open Positions (showing 4)\n- Lead Engineer (m/f/d) - Remote in DE/UK/PT   ...    - [2024-04-17] Tech Funding News: Cozero raises €6.5M in Series A funding to advance climate ERP solutions — TFN   ...    - [2025-12-17] Are we"
+      ],
+      "highlight_scores": []
+    },
+    {
+      "url": "https://reev.com/",
+      "id": "https://exa.ai/library/company/emonvia-gmbh",
+      "title": "reev",
+      "score": null,
+      "published_date": "2026-02-23T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/D4D0BAQFPpg8Tkq-i7g/company-logo_200_200/B4DZmak6yeH0AI-/0/1759234993804/reevmobility_logo?e=2147483647&v=beta&t=ftfJIyOLrePfzEdIPSCPZGJ1w8F5txcTc1uypf_zfwE",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/emonvia-gmbh",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "reev",
+            "founded_year": 2018,
+            "description": "(Deutsche Version unten) \n\nreev is an internationally active software company based in Munich that offers a leading energy and charging platform for the semi-public sector. The company's mission is to promote sustainable and future-oriented mobility. The cloud-based solution ensures easy charging, efficient energy use and optimized load management – designed for companies, gastronomy, parking areas and the housing industry. \n\n \n\nAs a reliable partner for charge point operators (CPOs), electricians, wholesalers and charging station manufacturers, reev actively contribute to the expansion of the charging and energy ecosystem. Intuitive solutions for administration, control and billing ensure maximum functionality, user-friendliness and security – for smart, connected and sustainable mobility. \n\nPrivacy policy: https://reev.com/en/privacy-policy/\n\n______\n\nreev ist ein international tätiges Softwareunternehmen aus München und bietet eine führende Energie- und Ladeplattform für den halböffentlichen Bereich. Das Unternehmen verfolgt die Mission, eine nachhaltige und zukunftsfähige Mobilität zu fördern. Die cloudbasierte Lösung sorgt für einfaches Laden, effiziente Energienutzung und optimiertes Lastmanagement – konzipiert für Unternehmen, Gastronomie, Parkflächen und Wohnungswirtschaft. \n\n \n\nAls zuverlässiger Partner für Ladestationsbetreiber (CPOs), Elektroinstallateure, den Großhandel und Ladestationshersteller trägt reev aktiv zum Ausbau der Ladeinfrastruktur bei. Intuitive Lösungen für Verwaltung, Steuerung und Abrechnung gewährleisten höchste Funktionalität, Benutzerfreundlichkeit und Sicherheit – für eine smarte, vernetzte und nachhaltige Mobilität. \n\nDatenschutzerklärung: https://reev.com/datenschutz/",
+            "workforce": {
+              "total": 70
+            },
+            "headquarters": {
+              "address": null,
+              "city": "Munich",
+              "postal_code": null,
+              "country": "Germany"
+            },
+            "financials": {
+              "revenue_annual": null,
+              "funding_total": 10813897,
+              "funding_latest_round": {
+                "name": "Series A - Reev",
+                "date": "2024-05-14",
+                "amount": 10813897
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 27751
+            }
+          }
+        }
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "is a Software Development company. eMobility is a company that provides solutions for charging management. Reev employs 70 people (-13.4% YoY, -13 people), founded in 2018. Headquartered in Munich, Bavaria, Germany, operates in 6 countries (including Croatia, Netherlands, India, United Kingdom, and France). Has $10.8M in total funding, most recently a Series A - Reev in May 2024.   ...    ## Company Details\n- Industry: Software Development\n- Type: Privately Held\n- Headquarters: Munich, Germany - Founded Year: 2018\n- Homepage: reev.com\n- Status: active\n- Ownership: Private   ...    - SIC Codes: 73, 737\n- NAICS Codes: 51, 518 ## Financials\n- Total Funding: USD 10,813,897 - Series A - Reev (2024-05-14): USD 10.8M - 2 investors, led by Future Energy Ventures, Blue Earth Capital ## Workforce\n- Employees: 70 (51-200 employees)\n  - Yearly Growth: -13.4%\n- Key Executives: - Joao Rosario: Chief Financial Officer (joined Oct 2025)\n  - Verena Graf: Chief Marketing Officer - Claude Kamga: Board Member\n  - Reevanth Lama: Board Member\n  - Veronique Hördemann: Board Member\n- Breakdown: - By Country: Germany: 49 (58%), Croatia: 14 (17%), Netherlands: 3 (4%), India: 2 (2%), United Kingdom: 1 (1%),   ...    - By Department: Technical: 21 (25%), Other Department: 16 (19%), General Management: 8 (10%), Customer Service: 5   ...    - By Seniority: Manager: 16 (19%), Senior: 16 (19%), Other Management: 15 (18%), Specialist: 12 (14%), Head: 5 (6%), C-Level: 3 (4%), Partner: 3 (4%), Director: 1 (1%) - Salary Ranges:\n  - Senior Software Engineer: EUR 50,117/year\n  - Senior Software Developer: EUR 65,011/year   ...    operations GmbH (2), E.ON Drive (3), gridX (3), Criteo (1), Peter Park (3) - Active Job Postings: 16\n  - Job Posting Trends: Monthly: -15.8%, Quarterly: +6.7%, Yearly: +0.0% ### Open Positions (showing 10, 6 more available)\n- Senior Finance Manager (all genders) - Regional Sales Manager Westdeutschland (all genders)\n- Senior Platform Engineer (all genders) - Regional Sales Manager Süddeutschland (all genders)\n- (Senior) Product Manager - Energy x eMobility (all genders)   ...    - [2026-02-12] If you like building things that matter, this is for you. We are hiring! 👉 Apply here: https://lnkd.in/evhJFqmu Join reev today and shape the future of energy & charging management. (21 reactions)   ...    - [2025-12-22] reev Year"
+      ],
+      "highlight_scores": []
+    },
+    {
+      "url": "https://instaffo.com/",
+      "id": "https://exa.ai/library/company/instaffo-gmbh",
+      "title": "Instaffo",
+      "score": null,
+      "published_date": "2026-02-22T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/C4D0BAQHavKSx4m9UQg/company-logo_200_200/company-logo_200_200/0/1630565302253/instaffo_gmbh_logo?e=2147483647&v=beta&t=feqhsq9LGKCatgROMGWG6dlO2TRFbeb9-bs62Rd2Tn0",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/instaffo-gmbh",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "Instaffo",
+            "founded_year": 2014,
+            "description": "Instaffo is the hiring platform that connects companies and talent faster and more precisely – without inbox overload, slow processes, or tool chaos.\n\nFor companies:\nInstead of relying on job boards or manual sourcing, teams on Instaffo get instant access to pre-qualified, ready-to-switch talent – curated and intelligently matched based on relevant criteria like salary, skills, seniority, switch intent, and more.\n\nTime-to-hire: Ø under 25 days\nUp to 50% lower hiring costs\n2,000+ companies already use Instaffo\n\nFor talent:\nYou don’t want just any job – you want the right one. Instaffo only shows you roles that truly fit – at employers that match your expectations.\n200,000+ vetted talents are already on the platform\nApply directly to roles – or get contacted by companies that match you\nAll the info you need in one place – no CV chaos, no ghosting\n\nSuccess stories: instaffo.com/success-stories\nTry Instaffo for free: instaffo.com\nImprint: instaffo.com/impressum\nPrivacy policy: instaffo.com/datenschutz\n\nInstaffo – the platform where better hiring begins.",
+            "workforce": {
+              "total": 75
+            },
+            "headquarters": {
+              "address": null,
+              "city": "Heidelberg",
+              "postal_code": null,
+              "country": "Germany"
+            },
+            "financials": {
+              "revenue_annual": 15000000,
+              "funding_total": 6329949,
+              "funding_latest_round": {
+                "name": "Series A",
+                "date": "2019-04-10",
+                "amount": 2255180
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 205726
+            }
+          }
+        }
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "Instaffo is a IT Services and IT Consulting company. Instaffo is a job platform for tech, marketing, and sales. It offers remote options for companies with over 1,800 employees and allows users to connect with professionals in three minutes. Instaffo employs 75 people (+11.2% YoY, +10 people) and has an annual revenue of $15.0M, founded in 2014. Headquartered in Heidelberg, Baden-Württemberg, Germany, operates in 9 countries (including Ukraine, Czechia, Portugal, Latvia, and Brazil). Has $6.3M in total funding, most recently a Series A in April 2019, with 4 prior funding rounds.   ...    Time-to-hire: Ø under 25 days\nUp to 50% lower hiring costs\n2,000+ companies already use Instaffo   ...    Instaffo – the platform where better hiring begins. ## Company Details\n- Industry: IT Services and IT Consulting\n- Type: Privately Held - Headquarters: Heidelberg, Germany\n- Founded Year: 2014\n- Homepage: instaffo.com\n- Status: active\n- Ownership: Private   ...    - SIC Codes: 73, 736\n- NAICS Codes: 56, 561 ## Financials\n- Annual Revenue: USD 15,000,000\n- Total Funding: USD 6,329,949 - Series A (2019-04-10): USD 2.3M - 4 investors, led by FinLab\n  - Seed Round (2018-03-15): USD 1.4M - 1 investor - Seed Round (2016-02-10): USD 958,882 - 2 investors\n  - Series A - 1 investor, led by Crosslantic Capital - Seed Round (2018-09-26): USD 1.8M - 2 investors, led by FinLab ## Workforce\n- Employees: 75 (51-200 employees)\n  - Monthly Growth: +3.1%\n  - Yearly Growth: +11.2%\n- Key Executives: - Leon Heyse: Talent Partner (joined Oct 2025)\n  - Giuseppe García Cancela: Talent Partner (joined Nov 2025) - Felix Cheison: Talent Partner (joined Dec 2025)\n  - Volker Rofalski: Member Of The Board Of Advisors\n- Breakdown: - By Country: Germany: 66 (67%), Ukraine: 2 (2%), Czechia: 1 (1%), Portugal: 1 (1%), Latvia: 1 (1%), Brazil: 1 (1%),   ...    - By Department: Hr: 17 (17%), Sales: 13 (13%), Technical: 13 (13%), Customer Service: 11 (11%), Other Department: 9   ...    (6), Limbach Gruppe SE (2), Zombie Soup (2), cbs Corporate Business Solutions (2), ABB (2), Verivox GmbH (2) - Active Job Postings: 526\n  - Job Posting Trends: Monthly: -16.2%, Quarterly: +31.8%, Yearly: +20.9% ### Open Positions (showing 10, 516 more available)\n- Senior Java Software Entwickler (m/w/d)   ...    - [201"
+      ],
+      "highlight_scores": []
+    },
+    {
+      "url": "https://sorare.com/",
+      "id": "https://exa.ai/library/company/sorare",
+      "title": "Sorare",
+      "score": null,
+      "published_date": "2026-02-25T00:00:00.000Z",
+      "author": "Exa",
+      "image": "https://media.licdn.com/dms/image/v2/C4E0BAQGt3iDxsOPBnQ/company-logo_200_200/company-logo_200_200/0/1671638146594/sorare_logo?e=2147483647&v=beta&t=y6Moyq4wE3yAKSLKl0_ZI-Bn_dqF3vHvgDyfuRXCCCA",
+      "favicon": null,
+      "subpages": null,
+      "extras": null,
+      "entities": [
+        {
+          "id": "https://exa.ai/library/company/sorare",
+          "type": "company",
+          "version": 1,
+          "properties": {
+            "name": "Sorare",
+            "founded_year": 2018,
+            "description": "Come join the team responsible for creating the future of fantasy football, baseball, and basketball.\n\nIf you're looking to run fast, have an immediate impact from day 1, and work with smart/creative people -- Sorare is for you!\n\nWe are hiring for roles both in Paris & in the US.",
+            "workforce": {
+              "total": 112
+            },
+            "headquarters": {
+              "address": null,
+              "city": "Paris",
+              "postal_code": null,
+              "country": "France"
+            },
+            "financials": {
+              "revenue_annual": 6500000,
+              "funding_total": 739245791,
+              "funding_latest_round": {
+                "name": "Series B",
+                "date": "2021-09-20",
+                "amount": 680000000
+              }
+            },
+            "web_traffic": {
+              "visits_monthly": 4149646
+            }
+          }
+        }
+      ],
+      "crawl_date": null,
+      "text": null,
+      "summary": null,
+      "highlights": [
+        "is a Technology, Information and Internet company. Sorare is a company that collects, plays, and wins officially licensed digital cards featuring the world's best global football, NBA, and MLB players. Sorare employs 112 people (-7.3% YoY, -13 people) and has an annual revenue of $6.5M, founded in 2018. Headquartered in Paris, Île-de-France, France, operates in 15 countries (including United States, United Kingdom, Italy, Germany, and Spain). Has $739.2M in total funding, most recently a Series B in September 2021, with 3 prior funding rounds. ## About\nCome join the team responsible for creating the future of fantasy football, baseball, and basketball. If you're looking to run fast, have an immediate impact from day 1, and work with smart/creative people -- Sorare is for you! We are hiring for roles both in Paris & in the US. ## Company Details\n- Industry: Technology, Information and Internet\n- Type: Privately Held - Headquarters: Paris, France\n- Founded Year: 2018\n- Homepage: sorare.com\n- Status: active\n- Ownership: Private   ...    ## Financials\n- Annual Revenue: USD 6,500,000\n- Total Funding: USD 739,245,791 - Pre Seed Round (2019-05-21): USD 614,045 - 9 investors, led by Seedcamp, Kima Ventures - Seed Round (2020-07-16): USD 10.0M - 15 investors, led by Headline - Series A (2021-02-25): USD 48.6M - 11 investors, led by Benchmark - Series B (2021-09-20): USD 680.0M - 24 investors, led by SoftBank ## Workforce\n- Employees: 112 (51-200 employees)\n  - Yearly Growth: -7.3%\n- Key Executives: - Clément Rouge: Product Strategy Lead\n  - Christian Miele: Board Director\n  - Peter Fenton: Board Member - Jonathan Ludwig: Seed Investor\n  - Jérémy Bestel: Pre-seed Investor\n  - Mato Perić: Seed Investor   ...    - By Country: France: 74 (45%), United States: 13 (8%), United Kingdom: 6 (4%), Italy: 4 (2%), Germany: 3 (2%),   ...    - By Department: Other Department: 26 (16%), Technical: 23 (14%), Finance: 14 (8%), Marketing: 14 (8%), Product: 10   ...    - Talent Sources: BlaBlaCar (2), Voodoo (11), Aircall (3), Algolia (3), DraftKings Inc. (4), Major League Baseball   ...    On Location (2), Altertable (3), Yahoo (4), Social Verify Agency (2), Uniswap Labs (2) - Active Job Postings: 1\n  - Job Posting Trends: Monthly: +0.0%, Quarterly: -50.0% ### Open Positions (showing 1)\n- Marketing Intern   ...    comments) - [2025-03-14] Sorare is hiring Product Designers 📱 ✨ ️We're looking for"
+      ],
+      "highlight_scores": []
+    }
+  ],
   "resolved_search_type": "",
   "auto_date": null,
   "context": null,
@@ -63,5 +429,5 @@
     },
     "contents": null
   },
-  "search_time": 959.8
+  "search_time": 2071.9
 }

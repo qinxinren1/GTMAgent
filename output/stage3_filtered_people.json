@@ -1,0 +1,1964 @@
+[
+  {
+    "company": "Orus",
+    "domain": "orus.eu",
+    "total_before_filter": 87,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAABXvcAMB8MNdN19cRcq54pBND1v_kiCV9Xw",
+        "firstName": "Ludivine",
+        "lastName": "Santos",
+        "name": "Ludivine Santos",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAABXvcAMB8MNdN19cRcq54pBND1v_kiCV9Xw",
+        "linkedin": "https://www.linkedin.com/in/ludivine-santos",
+        "location": {
+          "current": {
+            "country": null,
+            "city": "Greater Paris Metropolitan Region",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 0.6219628129857407,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/ludivine-santos",
+        "currentRole": {
+          "role": "Senior Talent Acquisition Specialist [RPO]",
+          "company": "Orus",
+          "from": "01-11-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Insurance",
+            "Financial Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "orus.eu",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "74351392"
+        },
+        "skills": [
+          "Développement commercial",
+          "Recrutement technique",
+          "Start-up",
+          "Chasse",
+          "Sourcing",
+          "Linkedin Sales Navigator",
+          "LinkedIn Recruiter",
+          "Recrutement"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAACBtI54BNfFuyk9qQWqKpBtj6vEDAgEB1Ik",
+        "firstName": "Célia",
+        "lastName": "Hounkpatin",
+        "name": "Célia Hounkpatin",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACBtI54BNfFuyk9qQWqKpBtj6vEDAgEB1Ik",
+        "linkedin": "https://www.linkedin.com/in/celia-hounkpatin-47a238132",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "France",
+            "inferred": false,
+            "coords": {
+              "lon": 2.464483,
+              "lat": 46.714842
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.144216145196895,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/celia-hounkpatin-47a238132",
+        "currentRole": {
+          "role": "Talent Acquisition Partner",
+          "company": "Orus",
+          "from": "01-06-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Insurance",
+            "Financial Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "orus.eu",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "74351392"
+        },
+        "skills": [
+          "Recrutement",
+          "Marketing",
+          "Anglais",
+          "Relations publiques",
+          "Vente",
+          "Management",
+          "Microsoft PowerPoint",
+          "Leadership",
+          "Public Speaking",
+          "Microsoft Excel",
+          "Parler en public",
+          "Stratégie marketing",
+          "Service client",
+          "Microsoft Word",
+          "Microsoft Office"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAACAQz7YBcbIyUPWDY5eiiXtHLlnTbAKmgVw",
+        "firstName": "Margot",
+        "lastName": "Comparetti",
+        "name": "Margot Comparetti",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACAQz7YBcbIyUPWDY5eiiXtHLlnTbAKmgVw",
+        "linkedin": "https://www.linkedin.com/in/margot-comparetti-9321ba130",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.1664207297452227,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/margot-comparetti-9321ba130",
+        "currentRole": {
+          "role": "Lead Talent Acquisition & HR",
+          "company": "Orus",
+          "from": "01-09-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Insurance",
+            "Financial Services"
+          ],
+          "location": "Ville de Paris, Île-de-France, France",
+          "companyWebsiteDomain": "orus.eu",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "74351392"
+        },
+        "skills": [
+          "Gestion de la paie",
+          "Gestion des contrats",
+          "Recrutement",
+          "Sourcing",
+          "Ressources humaines",
+          "Sélection de candidats",
+          "Entretiens"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAAugrRsBnCCUlH44USAQT7Tme9jINrJZJKI",
+        "firstName": "Abraham",
+        "lastName": "DIA",
+        "name": "Abraham DIA",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAAugrRsBnCCUlH44USAQT7Tme9jINrJZJKI",
+        "linkedin": "https://www.linkedin.com/in/abraham-dia",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "France",
+            "inferred": false,
+            "coords": {
+              "lon": 2.464483,
+              "lat": 46.714842
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 2.130978138872933,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/abraham-dia",
+        "currentRole": {
+          "role": "Freelance Tech recruiter @ Orus",
+          "company": "Orus",
+          "from": "01-04-2025",
+          "to": "01-02-2026",
+          "isLatestExperience": true,
+          "industries": [
+            "Insurance",
+            "Financial Services"
+          ],
+          "location": "Paris, Île-de-France, France",
+          "companyWebsiteDomain": "orus.eu",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "74351392"
+        },
+        "skills": [
+          "Recrutement",
+          "Ressources humaines",
+          "Sélection",
+          "Recruiting",
+          "Talent Acquisition",
+          "Acquisition de talents",
+          "Human Resources",
+          "Recrutement technique",
+          "HR Consulting",
+          "Talent Management",
+          "Consulting RH",
+          "Technical Recruiting",
+          "Recherche de dirigeants",
+          "Executive Search",
+          "Gestion des talents"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAAK6Xt4BjisJOkBhIk8b589WjCiaMIr9Mko",
+        "firstName": "Anaïs",
+        "lastName": "de Lalande",
+        "name": "Anaïs de Lalande",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAAK6Xt4BjisJOkBhIk8b589WjCiaMIr9Mko",
+        "linkedin": "https://www.linkedin.com/in/anaisdelalande",
+        "location": {
+          "current": {
+            "country": null,
+            "city": "Greater Paris Metropolitan Region",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 0.9875144242162266,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/anaisdelalande",
+        "currentRole": {
+          "role": "Fractional Head of People",
+          "company": "Orus",
+          "from": "01-02-2026",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Insurance",
+            "Financial Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "orus.eu",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "74351392"
+        },
+        "skills": [
+          "PMI",
+          "Training and Development (HR)",
+          "Change Management",
+          "Analytical Skills",
+          "Business Process Improvement",
+          "KPI Reporting",
+          "Online Marketing",
+          "Positioning (Marketing)",
+          "Operational Marketing",
+          "Website Building",
+          "Wine Education",
+          "Event Planning",
+          "Sales Trainings",
+          "Budget Management",
+          "Event Management"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Zama",
+    "domain": "zama.org",
+    "total_before_filter": 103,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAAArT62oBkxwU_XpWHjaoY0Yl_lF0gHUaYao",
+        "firstName": "Bilal",
+        "lastName": "EL ALAMY",
+        "name": "Bilal EL ALAMY",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAArT62oBkxwU_XpWHjaoY0Yl_lF0gHUaYao",
+        "linkedin": "https://www.linkedin.com/in/bilal-el-alamy",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 2.6673008868142847,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/bilal-el-alamy",
+        "currentRole": {
+          "role": "CoFounder & CEO",
+          "company": "PyratzLabs",
+          "from": "01-06-2021",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": null,
+          "location": "Ville de Paris, Île-de-France, France",
+          "companyWebsiteDomain": "pyratzlabs.com",
+          "companyEmployeeCountRange": "11-50",
+          "companyLinkedinId": "79613711"
+        },
+        "skills": [
+          "Agentic Engineering",
+          "C++",
+          "Matlab",
+          "Data Mining",
+          "Modélisation",
+          "Leadership",
+          "Stratégie",
+          "Project Management",
+          "Algorithmes",
+          "R statistics",
+          "Machine Learning",
+          "C",
+          "SQL",
+          "Java",
+          "Fortran"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Aikido Security",
+    "domain": "aikido.dev",
+    "total_before_filter": 117,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAABIWIQEBGZppw6r4nGjWmo9EfwrIm4e0TGY",
+        "firstName": "Jarno",
+        "lastName": "Broodcoorens",
+        "name": "Jarno Broodcoorens",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAABIWIQEBGZppw6r4nGjWmo9EfwrIm4e0TGY",
+        "linkedin": "https://www.linkedin.com/in/jarno-br",
+        "location": {
+          "current": {
+            "country": "Belgium",
+            "city": "Deinze",
+            "inferred": false,
+            "coords": {
+              "lon": 3.529612,
+              "lat": 50.97925
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.8550070576144104,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/jarno-br",
+        "currentRole": {
+          "role": "Talent Acquisition Lead",
+          "company": "Aikido Security",
+          "from": "01-09-2024",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Software Development",
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Ghent Metropolitan Area",
+          "companyWebsiteDomain": "aikido.dev",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "88890150"
+        },
+        "skills": [
+          "Artificial Intelligence (AI)",
+          "Executive Search",
+          "Technical Recruiting",
+          "Human Resources (HR)",
+          "Technology Recruitment",
+          "International Recruitment",
+          "IT Recruitment",
+          "Global Talent Acquisition",
+          "Human Resources",
+          "Recruiting",
+          "Software as a Service (SaaS)",
+          "Social Media",
+          "HR Consulting",
+          "CRM",
+          "Employer Branding"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAADYehD8Bk_NBdixiGcmAAgReEc53UvCSdgw",
+        "firstName": "Nic",
+        "lastName": "Versées",
+        "name": "Nic Versées",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAADYehD8Bk_NBdixiGcmAAgReEc53UvCSdgw",
+        "linkedin": "https://www.linkedin.com/in/nicversees",
+        "location": {
+          "current": {
+            "country": "Belgium",
+            "city": "Ghent",
+            "inferred": false,
+            "coords": {
+              "lon": 3.732703,
+              "lat": 51.057496
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.2991069911896893,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/nicversees",
+        "currentRole": {
+          "role": "HR Operations Specialist",
+          "company": "Aikido Security",
+          "from": "01-02-2026",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Software Development",
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Ghent Metropolitan Area",
+          "companyWebsiteDomain": "aikido.dev",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "88890150"
+        }
+      }
+    ]
+  },
+  {
+    "company": "Tomorro",
+    "domain": "tomorro.com",
+    "total_before_filter": 107,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAACjMdIEBMAyroQx006HgqcxVhaiE1UXHDG8",
+        "firstName": "Barbara",
+        "lastName": "Rambaud",
+        "name": "Barbara Rambaud",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACjMdIEBMAyroQx006HgqcxVhaiE1UXHDG8",
+        "linkedin": "https://www.linkedin.com/in/barbararambaud",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "France",
+            "inferred": false,
+            "coords": {
+              "lon": 2.464483,
+              "lat": 46.714842
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.280277372018527,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/barbararambaud",
+        "currentRole": {
+          "role": "Tech Recruiter",
+          "company": "Leeway",
+          "from": "01-01-2026",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Ville de Paris, Île-de-France, France",
+          "companyWebsiteDomain": "tomorro.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "20087048"
+        },
+        "skills": [
+          "Relation client",
+          "Vente",
+          "Sens de l’écoute",
+          "Recrutement IT",
+          "Marque employeur",
+          "Amélioration des processus",
+          "Stratégie de sourcing",
+          "Recrutement",
+          "Sourcing",
+          "Ressources humaines (RH)",
+          "Responsable produit",
+          "Management",
+          "Gestion de projet",
+          "Marketing"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAAnOT6cBGseGyd0c3zg7vU7Jtf0FrQQYh7Q",
+        "firstName": "Elise",
+        "lastName": "Daviau",
+        "name": "Elise Daviau",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAAnOT6cBGseGyd0c3zg7vU7Jtf0FrQQYh7Q",
+        "linkedin": "https://www.linkedin.com/in/elise-daviau",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.3571885103649002,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/elise-daviau",
+        "currentRole": {
+          "role": "Lead HR Ops",
+          "company": "Leeway",
+          "from": "01-10-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Ville de Paris, Île-de-France, France",
+          "companyWebsiteDomain": "tomorro.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "20087048"
+        },
+        "skills": [
+          "HR",
+          "Optimisation des processus",
+          "Efficacité opérationnelle",
+          "Systèmes d’information des ressources humaines (HRIS)",
+          "Administration du personnel",
+          "Management",
+          "Gestion de projet",
+          "Microsoft Office",
+          "Microsoft Excel",
+          "Ressources humaines",
+          "Anglais",
+          "Réseaux sociaux",
+          "Stratégie commerciale",
+          "Travail d'équipe",
+          "Français"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAAHzG3MBycwOkgQkMj__-w1MANQE5GXCgZ8",
+        "firstName": "Sebastien",
+        "lastName": "Lefrant",
+        "name": "Sebastien Lefrant",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAAHzG3MBycwOkgQkMj__-w1MANQE5GXCgZ8",
+        "linkedin": "https://www.linkedin.com/in/sebastienlefrant",
+        "location": {
+          "current": {
+            "country": null,
+            "city": "Greater Paris Metropolitan Region",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.8608882101457336,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/sebastienlefrant",
+        "currentRole": {
+          "role": "Chief People Officer",
+          "company": "Leeway",
+          "from": "01-06-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Paris, Île-de-France, France",
+          "companyWebsiteDomain": "tomorro.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "20087048"
+        },
+        "skills": [
+          "International M&A",
+          "Mergers & Acquisitions (M&A)",
+          "Sustainability",
+          "Diversity & Inclusion",
+          "Human Resources (HR)",
+          "Workforce Planning",
+          "HR Operations",
+          "HR Policies",
+          "Employer Branding",
+          "People Management",
+          "Talent Management",
+          "Employee Engagement",
+          "Compensation & Benefits",
+          "Total Rewards Strategies",
+          "Change Management"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAB_mIlMBGqwMHwmro7XcWOARbt1MCCII3n4",
+        "firstName": "Marie-Alicia",
+        "lastName": "Simonetti",
+        "name": "Marie-Alicia Simonetti",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAB_mIlMBGqwMHwmro7XcWOARbt1MCCII3n4",
+        "linkedin": "https://www.linkedin.com/in/ma-simonetti",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.2662412523689632,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/ma-simonetti",
+        "currentRole": {
+          "role": "HRBP",
+          "company": "Leeway",
+          "from": "01-06-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Ville de Paris, Île-de-France, France",
+          "companyWebsiteDomain": "tomorro.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "20087048"
+        },
+        "skills": [
+          "Vente",
+          "Marketing",
+          "Communication",
+          "Travail d'équipe",
+          "Formation"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAAD-WzUBBH3nLhIUInlz-5KT0Ovrr6myHKg",
+        "firstName": "Nicolas",
+        "lastName": "Greppo",
+        "name": "Nicolas Greppo",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAAD-WzUBBH3nLhIUInlz-5KT0Ovrr6myHKg",
+        "linkedin": "https://www.linkedin.com/in/nicolasgreppo",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 4.784375036956795,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/nicolasgreppo",
+        "currentRole": {
+          "role": "Senior Tech Recruiter",
+          "company": "Leeway",
+          "from": "01-01-2026",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "tomorro.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "20087048"
+        }
+      },
+      {
+        "compositeId": "extcd_avery_ACoAABHlUDcBvZCSHIQBmfaoyy5EY1z13URPhL0",
+        "firstName": "Pauline",
+        "lastName": "Vrand Billas",
+        "name": "Pauline Vrand Billas",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAABHlUDcBvZCSHIQBmfaoyy5EY1z13URPhL0",
+        "linkedin": "https://www.linkedin.com/in/pauline-vrand-billas-67367284",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.4636356823149212,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/pauline-vrand-billas-67367284",
+        "currentRole": {
+          "role": "Senior Business Recruiter",
+          "company": "Leeway",
+          "from": "01-05-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Ville de Paris, Île-de-France, France",
+          "companyWebsiteDomain": "tomorro.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "20087048"
+        },
+        "skills": [
+          "Stratégie de sourcing",
+          "Amélioration des processus",
+          "Communication",
+          "Formation",
+          "Marque employeur",
+          "Droit du travail",
+          "Recrutement",
+          "Ressources Humaines",
+          "Anglais",
+          "Réseaux sociaux",
+          "Sourcing"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Cozero",
+    "domain": "cozero.io",
+    "total_before_filter": 46,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAABy4aOQBE_M_EaH6M98HIbxntsSTw_tB6LU",
+        "firstName": "Helen",
+        "lastName": "Tacke",
+        "name": "Helen Tacke",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAABy4aOQBE_M_EaH6M98HIbxntsSTw_tB6LU",
+        "linkedin": "https://www.linkedin.com/in/helen-tacke",
+        "location": {
+          "current": {
+            "country": null,
+            "city": "Berlin Metropolitan Area",
+            "inferred": false,
+            "coords": {
+              "lon": 13.407032,
+              "lat": 52.524932
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 4.408490233710156,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/helen-tacke",
+        "currentRole": {
+          "role": "Founder & MD",
+          "company": "Cozero",
+          "from": "01-06-2020",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": null,
+          "location": "Berlin",
+          "companyWebsiteDomain": "cozero.io",
+          "companyEmployeeCountRange": "11-50",
+          "companyLinkedinId": "43338549"
+        },
+        "skills": [
+          "Teamwork",
+          "Microsoft Excel",
+          "Microsoft Office",
+          "SPSS",
+          "PowerPoint",
+          "Kreative Lösungen",
+          "Organisatorische Effizienz",
+          "Eventmanagement",
+          "Start-ups",
+          "Growth Markets",
+          "Start-up Valuation",
+          "Business Development",
+          "Strategy Development",
+          "Business Model Assessment",
+          "Unternehmensstrategie"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAA-4DFAB33Qauc0r1Ia6O6LIU10FL_8wno8",
+        "firstName": "Fabian",
+        "lastName": "Schwarzer",
+        "name": "Fabian Schwarzer",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAA-4DFAB33Qauc0r1Ia6O6LIU10FL_8wno8",
+        "linkedin": "https://www.linkedin.com/in/fabianschwarzer",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Berlin",
+            "inferred": false,
+            "coords": {
+              "lon": 13.407032,
+              "lat": 52.524932
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 4.373910757574418,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/fabianschwarzer",
+        "currentRole": {
+          "role": "Co-founder & COO",
+          "company": "Cozero",
+          "from": "01-06-2020",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": null,
+          "location": "Berlin Area, Germany",
+          "companyWebsiteDomain": "cozero.io",
+          "companyEmployeeCountRange": "11-50",
+          "companyLinkedinId": "43338549"
+        },
+        "skills": [
+          "Business Strategy",
+          "Management Consulting",
+          "Project Management",
+          "Strategy",
+          "Market Research",
+          "Business Planning",
+          "Marketing Strategy",
+          "Team Leadership",
+          "German",
+          "New Business Development",
+          "Strategic Planning",
+          "English",
+          "Entrepreneurship",
+          "Innovation Management",
+          "Start-ups"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "reev",
+    "domain": "reev.com",
+    "total_before_filter": 18,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAAANHsTgBUnri7op3X9AZkSabC5IYbA1uthg",
+        "firstName": "Eric",
+        "lastName": "MEVELLEC",
+        "name": "Eric MEVELLEC",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAANHsTgBUnri7op3X9AZkSabC5IYbA1uthg",
+        "linkedin": "https://www.linkedin.com/in/eric-mevellec-13451a16",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 6.483682551998491,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/eric-mevellec-13451a16",
+        "currentRole": {
+          "role": "CEO",
+          "company": "Dreev",
+          "from": "01-02-2019",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": null,
+          "location": "Paris Area, France",
+          "companyWebsiteDomain": "dreev.com",
+          "companyEmployeeCountRange": "11-50",
+          "companyLinkedinId": "19178005"
+        }
+      }
+    ]
+  },
+  {
+    "company": "Instaffo",
+    "domain": "instaffo.com",
+    "total_before_filter": 79,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAADXpR_cBhB9pnaGhAAeifk9qRd-7xv4ephI",
+        "firstName": "Cheyenne",
+        "lastName": "Riegel",
+        "name": "Cheyenne Riegel",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAADXpR_cBhB9pnaGhAAeifk9qRd-7xv4ephI",
+        "linkedin": "https://www.linkedin.com/in/cheyenne-riegel-447aaa212",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Mannheim",
+            "inferred": false,
+            "coords": {
+              "lon": 8.492765,
+              "lat": 49.488789
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.420497473813902,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/cheyenne-riegel-447aaa212",
+        "currentRole": {
+          "role": "HR-Generalist",
+          "company": "Instaffo",
+          "from": "01-07-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg, Baden-Württemberg, Deutschland",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Ausbildungsvoraussetzung prüfen und Ausbildung planen",
+          "Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken",
+          "Ausbildung durchführen",
+          "Ausbildung abschließen",
+          "Active Sourcing",
+          "IT-Personalbeschaffung",
+          "Technische Personalbeschaffung",
+          "Employer Branding",
+          "Englisch",
+          "Kommunikation",
+          "Soziale Medien",
+          "Bewerbermanagementsystem",
+          "Recruiting",
+          "Personalabteilung (HR)"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAACFQs64BIsICEiHTdix5ZEZLgXi4e_E6Wso",
+        "firstName": "Marijana",
+        "lastName": "Čubrilo",
+        "name": "Marijana Čubrilo",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACFQs64BIsICEiHTdix5ZEZLgXi4e_E6Wso",
+        "linkedin": "https://www.linkedin.com/in/marijana-cubrilo",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Berlin",
+            "inferred": false,
+            "coords": {
+              "lon": 13.407032,
+              "lat": 52.524932
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.3063741497602968,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/marijana-cubrilo",
+        "currentRole": {
+          "role": "Freelance Recruiting Partnerin",
+          "company": "Instaffo",
+          "from": "01-11-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Projektmanager",
+          "Business Development",
+          "Coaching",
+          "Account-Management",
+          "Schnittstellenmanagement",
+          "People Management",
+          "Prozessmanagement",
+          "Management",
+          "IT Recruitment",
+          "Networking",
+          "Interviewing",
+          "Consulting",
+          "Project Management"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAACK0rToBPGnTVbJihEFZ_7WXeD3Ed9hK6kQ",
+        "firstName": "Fabian",
+        "lastName": "Schudy",
+        "name": "Fabian Schudy",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACK0rToBPGnTVbJihEFZ_7WXeD3Ed9hK6kQ",
+        "linkedin": "https://www.linkedin.com/in/fabian-schudy-70abbb142",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Heidelberg",
+            "inferred": false,
+            "coords": {
+              "lon": 8.769869,
+              "lat": 49.37625
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.5438176882413588,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/fabian-schudy-70abbb142",
+        "currentRole": {
+          "role": "Senior Active Sourcing Specialist",
+          "company": "Instaffo",
+          "from": "01-07-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg, Baden-Württemberg, Deutschland",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Active Sourcing",
+          "Recruiting",
+          "Talentmanagement",
+          "Social-Media-Kommunikation",
+          "Unternehmenskommunikation",
+          "E-Learning",
+          "Sprachwissenschaft",
+          "Community Management",
+          "Korrekturlesen",
+          "Kreatives Schreiben",
+          "Marketing",
+          "Asana",
+          "Improvisationstheater",
+          "Software as a Service (SaaS)",
+          "B2C"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAA5y_gIBj9wzVkav0nm3pjUzspR-7nP52js",
+        "firstName": "John",
+        "lastName": "Daudu",
+        "name": "John Daudu",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAA5y_gIBj9wzVkav0nm3pjUzspR-7nP52js",
+        "linkedin": "https://www.linkedin.com/in/johnaudu",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Berlin",
+            "inferred": false,
+            "coords": {
+              "lon": 13.407032,
+              "lat": 52.524932
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.661906678515262,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/johnaudu",
+        "currentRole": {
+          "role": "Recruiter/Active Sourcer",
+          "company": "Instaffo",
+          "from": "01-01-2026",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Berlin, Germany",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        }
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAC81go0BsPJm0m9Y8c9q1JVVli94BP2r7z0",
+        "firstName": "Sarah",
+        "lastName": "Kronenberg",
+        "name": "Sarah Kronenberg",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAC81go0BsPJm0m9Y8c9q1JVVli94BP2r7z0",
+        "linkedin": "https://www.linkedin.com/in/sarah-kronenberg-1a53021a1",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Lindau",
+            "inferred": false,
+            "coords": {
+              "lon": 9.704194,
+              "lat": 47.558444
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.7777701716334333,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/sarah-kronenberg-1a53021a1",
+        "currentRole": {
+          "role": "Senior Talent Success Manager",
+          "company": "Instaffo",
+          "from": "01-06-2024",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Bewerbungstraining",
+          "Prozessoptimierung",
+          "OKR",
+          "Asana",
+          "Psychologischer Test",
+          "Business-to-Business (B2B)",
+          "B2C",
+          "Software as a Service (SaaS)",
+          "Analytische Fähigkeiten",
+          "Recruiting",
+          "Talentmanagement",
+          "Bewerbermanagementsystem",
+          "Berufsberatung",
+          "Bewerberauswahl",
+          "Wissenschaft"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAACsdYUIBZ7LI9d9H9gVjU96lpQ-9dRuSi3Q",
+        "firstName": "Hanna",
+        "lastName": "Büßecker",
+        "name": "Hanna Büßecker",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACsdYUIBZ7LI9d9H9gVjU96lpQ-9dRuSi3Q",
+        "linkedin": "https://www.linkedin.com/in/hannabuessecker",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Heidelberg",
+            "inferred": false,
+            "coords": {
+              "lon": 8.769869,
+              "lat": 49.37625
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.7105515335480124,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/hannabuessecker",
+        "currentRole": {
+          "role": "Active Sourcing Specialist",
+          "company": "Instaffo",
+          "from": "01-01-2024",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Telefoninterviews",
+          "Mitarbeiterumfragen",
+          "Personalentwicklung",
+          "Bewerbermanagement",
+          "Vorstellungsgespräche",
+          "LinkedIn Recruiter",
+          "Asana",
+          "Confluence",
+          "Projektmanagement",
+          "Employer Branding",
+          "R",
+          "IT Recruiting",
+          "Talent Retention",
+          "Recruiting",
+          "Talentmanagement"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAADjdIWcBliP0TkQuJ0Am5W9kg8N2no4pC0Q",
+        "firstName": "Mirna",
+        "lastName": "Pehar",
+        "name": "Mirna Pehar",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAADjdIWcBliP0TkQuJ0Am5W9kg8N2no4pC0Q",
+        "linkedin": "https://www.linkedin.com/in/mirna-pehar-79b5b8227",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Hoffenheim",
+            "inferred": false,
+            "coords": {
+              "lon": 8.84099,
+              "lat": 49.272
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 2.3427531407310727,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/mirna-pehar-79b5b8227",
+        "currentRole": {
+          "role": "Talent Success Managerin",
+          "company": "Instaffo",
+          "from": "01-08-2023",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg, Baden-Württemberg, Deutschland",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Prozessoptimierung",
+          "Onboarding-Prozesse",
+          "Active Sourcing",
+          "Karriereberatung",
+          "Recruiting",
+          "Talentmanagement",
+          "Versicherungen",
+          "Kundenservice"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAAfJNZABjzObiztXra9xdtU9YKfapg0mf_o",
+        "firstName": "-Mike",
+        "lastName": "Neal-",
+        "name": "-Mike Neal-",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAAfJNZABjzObiztXra9xdtU9YKfapg0mf_o",
+        "linkedin": "https://www.linkedin.com/in/techdigitalrecruitment",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Morzine",
+            "inferred": false,
+            "coords": {
+              "lon": 6.701984,
+              "lat": 46.185152
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 2.1112806179155603,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/techdigitalrecruitment",
+        "currentRole": {
+          "role": "Flexsourcer",
+          "company": "Instaffo",
+          "from": "01-02-2026",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Talent Management",
+          "Global Talent Acquisition",
+          "Hospitality Industry",
+          "Seasonal",
+          "Strategy",
+          "Training",
+          "Applicant Tracking Systems",
+          "Internal Recruitment",
+          "Executive Search",
+          "Digital Marketing Agencies",
+          "IT Outsourcing",
+          "Consulting",
+          "Financial Recruiting",
+          "Permanent Staffing",
+          "Team Management"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAADhrqXoBWS7bE9XHDBCBuf-UsdG_21g0fxg",
+        "firstName": "Cemre",
+        "lastName": "Y.",
+        "name": "Cemre Y.",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAADhrqXoBWS7bE9XHDBCBuf-UsdG_21g0fxg",
+        "linkedin": "https://www.linkedin.com/in/cemre-yalcin",
+        "location": {
+          "current": {
+            "country": null,
+            "city": "Rhein-Neckar Metropolitan Region",
+            "inferred": false,
+            "coords": {
+              "lon": 8.426544,
+              "lat": 49.475368
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 2.5902856126223917,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/cemre-yalcin",
+        "currentRole": {
+          "role": "Talent Success Management",
+          "company": "Instaffo",
+          "from": "01-12-2022",
+          "to": "01-09-2025",
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Personalentwicklung",
+          "Prescreening der Bewerber",
+          "Coaching",
+          "Psychologie",
+          "Wirtschaftswissenschaften",
+          "Prozessoptimierung",
+          "Onboarding",
+          "Talent Retention",
+          "Consulting",
+          "Recruiting",
+          "B2C",
+          "Software as a Service (SaaS)",
+          "Active Sourcing",
+          "Analytische Fähigkeiten",
+          "Workflow Optimierung"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAACfHZ2MBTNYcbtaZeEY5PnOIs-NgRkhNW6w",
+        "firstName": "Marvin",
+        "lastName": "Jung",
+        "name": "Marvin Jung",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACfHZ2MBTNYcbtaZeEY5PnOIs-NgRkhNW6w",
+        "linkedin": "https://www.linkedin.com/in/marvin-jung-gernsbach",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Gernsbach",
+            "inferred": false,
+            "coords": {
+              "lon": 8.337581,
+              "lat": 48.766659
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 2.0181999615177237,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/marvin-jung-gernsbach",
+        "currentRole": {
+          "role": "Team Lead Talent Success",
+          "company": "Instaffo",
+          "from": "01-07-2023",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg, Baden-Württemberg, Deutschland",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Akquise",
+          "Prozessautomatierung",
+          "Prozessoptimierung",
+          "Full-Life-Cycle-Recruiting",
+          "Figma (Software)",
+          "Business-Impact-Analyse",
+          "Start-ups",
+          "Business Analysis Planning & Monitoring",
+          "Business Analytics",
+          "Technische Projektleitung",
+          "Workshop-Moderation",
+          "Datenanalyse",
+          "Agile Führung",
+          "ROI-Analyse",
+          "Zapier"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAB1EE5kBbtXN32Q3iSDbeHiAhLE7bilbGSw",
+        "firstName": "Christoph",
+        "lastName": "Zoeller",
+        "name": "Christoph Zoeller",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAB1EE5kBbtXN32Q3iSDbeHiAhLE7bilbGSw",
+        "linkedin": "https://www.linkedin.com/in/christoph-zoeller",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Heidelberg",
+            "inferred": false,
+            "coords": {
+              "lon": 8.769869,
+              "lat": 49.37625
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 4.2594325700491575,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/christoph-zoeller",
+        "currentRole": {
+          "role": "CEO & Founder",
+          "company": "Instaffo",
+          "from": "01-10-2015",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg Area, Germany",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Entrepreneurship",
+          "Start-ups",
+          "Business Strategy",
+          "Business Development",
+          "Strategy",
+          "Mentor",
+          "Management",
+          "Leadership"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAD997cQBvnuSgts-FvsqEmoHzSyzIsgvLao",
+        "firstName": "Jennifer",
+        "lastName": "Flores-Henkel",
+        "name": "Jennifer Flores-Henkel",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAD997cQBvnuSgts-FvsqEmoHzSyzIsgvLao",
+        "linkedin": "https://www.linkedin.com/in/jennifer-flores-henkel-3708a5258",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Michelau",
+            "inferred": false,
+            "coords": {
+              "lon": 11.11045,
+              "lat": 50.165789
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 5.25320867858799,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/jennifer-flores-henkel-3708a5258",
+        "currentRole": {
+          "role": "Active Sourcing Specialist",
+          "company": "Instaffo",
+          "from": "01-09-2023",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Active Sourcing",
+          "Sourcing",
+          "Social Recruiting",
+          "Recruiting",
+          "Boolesche Suche",
+          "Candidate Experience",
+          "Niche Talent Acquisition",
+          "Rekrutierung vielfältiger Talente",
+          "LinkedIn Recruiter",
+          "Xing",
+          "onlyfy",
+          "Canva",
+          "Markenbotschafter",
+          "Employer Branding",
+          "Instagram"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAADl21HYBJ9IJ9_mt6u1Pi_oyUwl-KnGYn1I",
+        "firstName": "Vivien",
+        "lastName": "in den Hesseln",
+        "name": "Vivien in den Hesseln",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAADl21HYBJ9IJ9_mt6u1Pi_oyUwl-KnGYn1I",
+        "linkedin": "https://www.linkedin.com/in/vivien-in-den-hesseln",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Heidelberg",
+            "inferred": false,
+            "coords": {
+              "lon": 8.769869,
+              "lat": 49.37625
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.659416834289856,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/vivien-in-den-hesseln",
+        "currentRole": {
+          "role": "Talent Success Manager Specialist",
+          "company": "Instaffo",
+          "from": "01-10-2024",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg, Baden-Württemberg, Deutschland",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Partnermanagement",
+          "Coaching",
+          "Rhetorik",
+          "Konzeption",
+          "Start-ups",
+          "Recherche",
+          "Rundfunk",
+          "GAT 2",
+          "Gesprächsanalytisches Transkriptionssystem",
+          "Transkription",
+          "IT-Recruiting",
+          "E-Recruiting",
+          "Talentmanagement",
+          "Recruiting",
+          "Talent Retention"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAEOj82wBfHIuIRaMloM2bpMW2KgZGFrIEEg",
+        "firstName": "Max",
+        "lastName": "Glocker",
+        "name": "Max Glocker",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAEOj82wBfHIuIRaMloM2bpMW2KgZGFrIEEg",
+        "linkedin": "https://www.linkedin.com/in/max-glocker-57806b278",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Heidelberg",
+            "inferred": false,
+            "coords": {
+              "lon": 8.769869,
+              "lat": 49.37625
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.9723373816648884,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/max-glocker-57806b278",
+        "currentRole": {
+          "role": "Talent Success Manager",
+          "company": "Instaffo",
+          "from": "01-05-2023",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Personaldienstleistungen",
+          "Screening",
+          "Recruiting",
+          "IT-Personalbeschaffung",
+          "Active Sourcing"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAADPvr_QBgExYzqmC6xbC4cKuGH22uqLsz84",
+        "firstName": "Michael",
+        "lastName": "Schmitt",
+        "name": "Michael Schmitt",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAADPvr_QBgExYzqmC6xbC4cKuGH22uqLsz84",
+        "linkedin": "https://www.linkedin.com/in/michael-schmitt-30498b203",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Mannheim",
+            "inferred": false,
+            "coords": {
+              "lon": 8.492765,
+              "lat": 49.488789
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 2.0079252878568083,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/michael-schmitt-30498b203",
+        "currentRole": {
+          "role": "Talent Success Manager",
+          "company": "Instaffo",
+          "from": "01-08-2023",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg, Baden-Württemberg, Deutschland",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Screening",
+          "Xing",
+          "KI Prompting",
+          "Karrieremessen",
+          "Vorstellungsgespräche",
+          "LinkedIn Recruiter",
+          "Personalabteilung (HR)",
+          "Onboarding",
+          "Vertragsmanagement",
+          "Recruiting",
+          "Boolesche Suche",
+          "Active Sourcing",
+          "Kommunikation",
+          "Mitarbeitereinstellung",
+          "Bewerbermanagement"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAACD1L1kBNc6-LNOXLBW_KOCugte57sKn0Cc",
+        "firstName": "Nick",
+        "lastName": "Oestreich",
+        "name": "Nick Oestreich",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACD1L1kBNc6-LNOXLBW_KOCugte57sKn0Cc",
+        "linkedin": "https://www.linkedin.com/in/nick-oestreich",
+        "location": {
+          "current": {
+            "country": "Germany",
+            "city": "Cologne",
+            "inferred": false,
+            "coords": {
+              "lon": 7.002998,
+              "lat": 50.928344
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 0.8518793522832069,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/nick-oestreich",
+        "currentRole": {
+          "role": "Senior Talent Acquisition Manager",
+          "company": "Instaffo",
+          "from": "01-05-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "IT Services and IT Consulting",
+            "Professional Services"
+          ],
+          "location": "Heidelberg, Baden-Württemberg, Deutschland",
+          "companyWebsiteDomain": "instaffo.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "10348996"
+        },
+        "skills": [
+          "Account-Management",
+          "HR-Beratung",
+          "E-Commerce",
+          "Geschäftsprozessoptimierung",
+          "Sponsorship Management",
+          "Sponsoring-Strategie",
+          "Sponsorship-Marketing",
+          "Candidate Experience",
+          "Strategische Neukundengewinnung",
+          "Recruiting Technologiebereich",
+          "Bedarfsanalyse",
+          "Interne Rekrutierung",
+          "Vertrieb",
+          "Community Management",
+          "Active Sourcing"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Sorare",
+    "domain": "sorare.com",
+    "total_before_filter": 97,
+    "people": [
+      {
+        "compositeId": "extcd_avery_ACoAACExHuMBWmbkkuDPJrqETeM_V7gEjfo9zW0",
+        "firstName": "Alexia",
+        "lastName": "A.",
+        "name": "Alexia A.",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAACExHuMBWmbkkuDPJrqETeM_V7gEjfo9zW0",
+        "linkedin": "https://www.linkedin.com/in/alexia-a-2035b1136",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "France",
+            "inferred": false,
+            "coords": {
+              "lon": 2.464483,
+              "lat": 46.714842
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 0.9714469223361237,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/alexia-a-2035b1136",
+        "currentRole": {
+          "role": "People Operations Manager",
+          "company": "Sorare",
+          "from": "01-07-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "sorare.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "11855883"
+        },
+        "skills": [
+          "Gestion de projet",
+          "Systèmes de reporting",
+          "Gestion administrative du personnel",
+          "Recrutement CDD",
+          "Service client",
+          "Anglais",
+          "Espagnol",
+          "Gestion des formations"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAADkjn2gBkY2LpaR6kewE5602c34YBcXrr0U",
+        "firstName": "Paul",
+        "lastName": "Buquet",
+        "name": "Paul Buquet",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAADkjn2gBkY2LpaR6kewE5602c34YBcXrr0U",
+        "linkedin": "https://www.linkedin.com/in/paul-buquet-174066229",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "Paris",
+            "inferred": false,
+            "coords": {
+              "lon": 2.342865,
+              "lat": 48.858705
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.0208989565271216,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/paul-buquet-174066229",
+        "currentRole": {
+          "role": "People & Talent Partner",
+          "company": "Sorare",
+          "from": "01-05-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": null,
+          "companyWebsiteDomain": "sorare.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "11855883"
+        },
+        "skills": [
+          "TOEIC (Test of English for International Communication)",
+          "Microsoft Office",
+          "LinkedIn Recruiter",
+          "Suivi commercial",
+          "Cycle de vie complet du recrutement",
+          "Finance d’entreprise",
+          "Négociation",
+          "Logiciel de productivité Notion",
+          "Trello",
+          "Recrutement",
+          "Stratégie d’entreprise"
+        ]
+      },
+      {
+        "compositeId": "extcd_avery_ACoAAA7IHxUBwEWDXd-iTS22LQaSIHAKh8Sh38Q",
+        "firstName": "Lucie",
+        "lastName": "Marzloff",
+        "name": "Lucie Marzloff",
+        "linkedInVanityUrl": "https://www.linkedin.com/in/ACoAAA7IHxUBwEWDXd-iTS22LQaSIHAKh8Sh38Q",
+        "linkedin": "https://www.linkedin.com/in/luciemarzloff",
+        "location": {
+          "current": {
+            "country": "France",
+            "city": "France",
+            "inferred": false,
+            "coords": {
+              "lon": 2.464483,
+              "lat": 46.714842
+            }
+          },
+          "preferredLocations": null
+        },
+        "careerLevel": null,
+        "educationLevel": null,
+        "weightedTenure": 1.2228557603597543,
+        "source": "avery-cd",
+        "linkedInUrl": "https://www.linkedin.com/in/luciemarzloff",
+        "currentRole": {
+          "role": "Head of People",
+          "company": "Sorare",
+          "from": "01-01-2025",
+          "to": null,
+          "isLatestExperience": true,
+          "industries": [
+            "Technology, Information and Internet",
+            "Technology, Information and Media"
+          ],
+          "location": "Paris et périphérie",
+          "companyWebsiteDomain": "sorare.com",
+          "companyEmployeeCountRange": "51-200",
+          "companyLinkedinId": "11855883"
+        },
+        "skills": [
+          "Gestion de programmes",
+          "Résolution de problèmes",
+          "Communication stratégique",
+          "Gestion des talents",
+          "Coaching",
+          "Compétences analytiques",
+          "Planification de la rémunération",
+          "Gestion de la performance",
+          "Négociation",
+          "Ressources humaines",
+          "Change Management",
+          "Droit du travail",
+          "Écoute active",
+          "Communication interne",
+          "Recrutement"
+        ]
+      }
+    ]
+  }
+]
