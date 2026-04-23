@@ -17,6 +17,30 @@ import streamlit as st
 from pipeline.db import get_connection, get_full_dashboard, init_db, update_message, update_prospect
 from pipeline.email_sender import SEQUENCE_DAYS, schedule_emails, send_due_emails
 
+def check_auth() -> bool:
+    if st.session_state.get("authenticated"):
+        return True
+
+    st.title("Avery GTM Dashboard")
+    st.markdown("Please log in to continue.")
+
+    with st.form("login_form"):
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
+        submitted = st.form_submit_button("Log in", type="primary", use_container_width=True)
+
+    if submitted:
+        correct_user = st.secrets["auth"]["username"]
+        correct_pass = st.secrets["auth"]["password"]
+        if username == correct_user and password == correct_pass:
+            st.session_state["authenticated"] = True
+            st.rerun()
+        else:
+            st.error("Invalid username or password")
+
+    return False
+
+
 STATUS_OPTIONS = ["draft", "scheduled", "sent", "skipped"]
 RESPONSE_OPTIONS = ["none", "accepted", "replied", "meeting_booked", "rejected", "bounced"]
 TYPE_LABELS = {"inhouse": "In-house", "rpo": "RPO / Freelance", "agency": "Agency"}
@@ -57,6 +81,9 @@ def _build_overview_df(data: list[dict]) -> pd.DataFrame:
 
 def main() -> None:
     st.set_page_config(page_title="Avery GTM Dashboard", layout="wide")
+
+    if not check_auth():
+        return
 
     conn = get_connection()
     init_db(conn)

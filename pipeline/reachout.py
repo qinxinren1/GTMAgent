@@ -261,7 +261,7 @@ def fill_placeholders(messages: dict[str, Any], person: dict[str, Any], company:
                 .replace("[Company]", company)
                 .replace("[City]", city)
             )
-            val = dash_pattern.sub(", ", val)
+            val = dash_pattern.sub(", ", val).replace(" ,  ", ", ")
             filled[key] = val
         else:
             filled[key] = val

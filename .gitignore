@@ -2,4 +2,4 @@
 .mcp.json
 __pycache__/
 .DS_Store
-.claude/
+.claude/.streamlit/secrets.toml
