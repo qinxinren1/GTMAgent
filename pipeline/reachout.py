@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 from typing import Any
 
 import anthropic
@@ -136,6 +137,7 @@ Alisher
 - Use [First], [Company], [City] as placeholders.
 - Plain text only, no markdown formatting.
 - Use emojis sparingly (🙌 🍀 ☕ 💯).
+- NEVER use em dashes (—), en dashes (–), or any unicode dashes. Use a comma instead.
 - If instructed to generate LinkedIn only, do NOT include email messages in the output."""
 
 
@@ -250,14 +252,17 @@ def fill_placeholders(messages: dict[str, Any], person: dict[str, Any], company:
     loc = (person.get("location") or {}).get("current", {})
     city = loc.get("city", "unknown")
 
+    dash_pattern = re.compile(r"[‐-―−–—]")
     filled = {}
     for key, val in messages.items():
         if isinstance(val, str):
-            filled[key] = (
+            val = (
                 val.replace("[First]", first)
                 .replace("[Company]", company)
                 .replace("[City]", city)
             )
+            val = dash_pattern.sub(", ", val)
+            filled[key] = val
         else:
             filled[key] = val
     return filled
