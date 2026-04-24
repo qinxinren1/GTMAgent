@@ -8,7 +8,7 @@ Usage:
   streamlit run dashboard.py
 """
 
-import os
+import hashlib
 from datetime import date, timedelta
 
 import pandas as pd
@@ -17,7 +17,16 @@ import streamlit as st
 from pipeline.db import get_connection, get_full_dashboard, init_db, update_message, update_prospect
 from pipeline.email_sender import SEQUENCE_DAYS, schedule_emails, send_due_emails
 
+def _auth_token() -> str:
+    user = st.secrets["auth"]["username"]
+    pw = st.secrets["auth"]["password"]
+    return hashlib.sha256(f"{user}:{pw}".encode()).hexdigest()[:16]
+
+
 def check_auth() -> bool:
+    token = st.query_params.get("token", "")
+    if token == _auth_token():
+        st.session_state["authenticated"] = True
     if st.session_state.get("authenticated"):
         return True
 
@@ -34,6 +43,7 @@ def check_auth() -> bool:
         correct_pass = st.secrets["auth"]["password"]
         if username == correct_user and password == correct_pass:
             st.session_state["authenticated"] = True
+            st.query_params["token"] = _auth_token()
             st.rerun()
         else:
             st.error("Invalid username or password")
@@ -79,6 +89,239 @@ def _build_overview_df(data: list[dict]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _capture_stdout(func, *args, **kwargs):
+    """Run a function, capture its stdout, return (result, output)."""
+    import io
+    import contextlib
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        result = func(*args, **kwargs)
+    return result, buf.getvalue()
+
+
+def _render_pipeline_section(conn) -> None:
+    st.title("Avery GTM Dashboard")
+
+    n_companies = conn.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
+
+    # Step 1: Find Companies
+    st.subheader("Step 1 — Find Companies")
+    q1, q2, q3, q4 = st.columns([5, 2, 1, 2])
+    with q1:
+        query = st.text_input("query", value="startup in Europe with series A / series B funding and 50 to 200 employees 2025 2026", key="pipeline_query", label_visibility="collapsed")
+    with q2:
+        location = st.text_input("country", value="", placeholder="Country: NL, DE, FR", key="pipeline_location", label_visibility="collapsed")
+    with q3:
+        num = st.number_input("n", min_value=5, max_value=100, value=30, key="pipeline_num", label_visibility="collapsed")
+    with q4:
+        btn_find = st.button("Search & Filter", type="primary", use_container_width=True, key="btn_find")
+
+    if btn_find:
+        from pipeline.company_search import run_company_search
+        from pipeline.company_filter import run_company_filter
+        loc = location.strip() or None
+        with st.status("Searching companies...", expanded=True) as status:
+            st.write("Searching via Exa...")
+            _, search_log = _capture_stdout(run_company_search, query=query, location=loc, num_results=num)
+            st.code(search_log, language="text")
+            st.write("Filtering by ICP...")
+            _, filter_log = _capture_stdout(run_company_filter)
+            st.code(filter_log, language="text")
+            status.update(label="Search & filter complete!", state="complete")
+
+    st.divider()
+
+    # Step 2: Process Companies
+    st.subheader("Step 2 — Process Companies")
+
+    # Companies without prospects (need people search)
+    unprocessed_rows = conn.execute("""
+        SELECT id, name, domain, description, hq_country
+        FROM companies c
+        WHERE NOT EXISTS (SELECT 1 FROM prospects p WHERE p.company_id = c.id)
+        ORDER BY c.id DESC
+    """).fetchall()
+    unprocessed = [dict(r) for r in unprocessed_rows]
+
+    # Companies with prospects but missing messages (interrupted pipeline)
+    incomplete_rows = conn.execute("""
+        SELECT DISTINCT c.id, c.name, c.domain, c.description, c.hq_country
+        FROM companies c
+        JOIN prospects p ON p.company_id = c.id
+        LEFT JOIN messages m ON p.id = m.prospect_id
+        WHERE m.id IS NULL
+        ORDER BY c.name
+    """).fetchall()
+    incomplete = [dict(r) for r in incomplete_rows]
+
+    n_pending = len(unprocessed) + len(incomplete)
+
+    if unprocessed:
+        st.caption(f"{len(unprocessed)} new companies (need people search)")
+        rows = []
+        for c in unprocessed:
+            domain = c["domain"] or ""
+            link = f"https://{domain}" if domain else None
+            rows.append({
+                "Company": c["name"],
+                "Website": link,
+                "Description": (c["description"] or "")[:120],
+                "Country": c["hq_country"] or "—",
+            })
+        df_queue = pd.DataFrame(rows)
+
+        selected = st.dataframe(
+            df_queue,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="multi-row",
+            column_config={
+                "Website": st.column_config.LinkColumn("Website", display_text="Visit"),
+            },
+            key="company_queue_table",
+        )
+
+        sel_rows = selected.selection.rows if selected.selection else []
+        if sel_rows:
+            del_ids = [unprocessed[i]["id"] for i in sel_rows]
+            if st.button(f"Delete {len(sel_rows)} selected", type="secondary", key="btn_del_companies"):
+                placeholders = ",".join("?" * len(del_ids))
+                conn.execute(f"DELETE FROM companies WHERE id IN ({placeholders})", del_ids)
+                conn.commit()
+                st.rerun()
+
+    if incomplete:
+        st.caption(f"{len(incomplete)} companies need to finish processing (email/messages)")
+        inc_rows = []
+        for c in incomplete:
+            domain = c["domain"] or ""
+            link = f"https://{domain}" if domain else None
+            n_missing = conn.execute("""
+                SELECT COUNT(*) FROM prospects p
+                LEFT JOIN messages m ON p.id = m.prospect_id
+                WHERE p.company_id = ? AND m.id IS NULL
+            """, (c["id"],)).fetchone()[0]
+            inc_rows.append({
+                "Company": c["name"],
+                "Website": link,
+                "Pending": f"{n_missing} prospects",
+                "Country": c["hq_country"] or "—",
+            })
+
+        inc_selected = st.dataframe(
+            pd.DataFrame(inc_rows),
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="multi-row",
+            column_config={
+                "Website": st.column_config.LinkColumn("Website", display_text="Visit"),
+            },
+            key="incomplete_queue_table",
+        )
+
+        inc_sel_rows = inc_selected.selection.rows if inc_selected.selection else []
+        if inc_sel_rows:
+            del_ids = [incomplete[i]["id"] for i in inc_sel_rows]
+            if st.button(f"Delete {len(inc_sel_rows)} selected", type="secondary", key="btn_del_incomplete"):
+                placeholders = ",".join("?" * len(del_ids))
+                conn.execute(f"DELETE FROM messages WHERE prospect_id IN (SELECT id FROM prospects WHERE company_id IN ({placeholders}))", del_ids)
+                conn.execute(f"DELETE FROM prospects WHERE company_id IN ({placeholders})", del_ids)
+                conn.execute(f"DELETE FROM companies WHERE id IN ({placeholders})", del_ids)
+                conn.commit()
+                st.rerun()
+
+    if n_pending == 0:
+        st.caption("All companies processed.")
+
+    btn_process = st.button(
+        f"Run Pipeline ({n_pending})" if n_pending > 0 else "All done",
+        type="primary",
+        disabled=(n_pending == 0),
+        use_container_width=True,
+        key="btn_process",
+    )
+
+    if btn_process:
+        from pipeline.people_search import run_people
+        from pipeline.people_filter import run_filter
+        from pipeline.people_email import run_email_enrichment
+        from pipeline.reachout import run_reachout
+        with st.status("Processing companies...", expanded=True) as status:
+            st.write("Stage 2 — People search...")
+            _, log2 = _capture_stdout(run_people)
+            st.code(log2, language="text")
+            st.write("Stage 3 — ICP filter...")
+            _, log3 = _capture_stdout(run_filter)
+            st.code(log3, language="text")
+            st.write("Stage 4 — Email enrichment...")
+            _, log4 = _capture_stdout(run_email_enrichment)
+            st.code(log4, language="text")
+            st.write("Stage 5 — Message generation...")
+            _, log5 = _capture_stdout(run_reachout)
+            st.code(log5, language="text")
+            status.update(label="Pipeline complete!", state="complete")
+
+    st.divider()
+
+    # Step 3: Send Emails
+    st.subheader("Step 3 — Send Emails")
+
+    n_draft = conn.execute(
+        "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='draft'",
+    ).fetchone()[0]
+    n_scheduled = conn.execute(
+        "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='scheduled'",
+    ).fetchone()[0]
+    n_due = conn.execute(
+        "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='scheduled' AND scheduled_date <= ?",
+        (date.today().isoformat(),),
+    ).fetchone()[0]
+    n_email_sent = conn.execute(
+        "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='sent'",
+    ).fetchone()[0]
+
+    e1, e2, e3, e4, e5, e6 = st.columns([1, 1, 1, 1, 2, 2])
+    e1.metric("Draft", n_draft)
+    e2.metric("Scheduled", n_scheduled)
+    e3.metric("Due Today", n_due)
+    e4.metric("Sent", n_email_sent)
+    with e5:
+        if st.button("Schedule All Drafts", disabled=(n_draft == 0), use_container_width=True, key="btn_schedule_all"):
+            count = schedule_emails()
+            st.success(f"Scheduled {count} emails")
+            st.rerun()
+    with e6:
+        if st.button("Send Due Emails", type="primary", disabled=(n_due == 0), use_container_width=True, key="btn_send_due"):
+            sent_count = send_due_emails(dry_run=False)
+            if sent_count > 0:
+                st.success(f"Sent {sent_count} emails!")
+            else:
+                st.warning("No emails sent — check Loops config")
+            st.rerun()
+
+    # Summary metrics
+    n_prospects = conn.execute("SELECT COUNT(*) FROM prospects").fetchone()[0]
+    n_with_email = conn.execute(
+        "SELECT COUNT(*) FROM prospects WHERE email IS NOT NULL AND email != ''"
+    ).fetchone()[0]
+    n_total_sent = conn.execute("SELECT COUNT(*) FROM messages WHERE status = 'sent'").fetchone()[0]
+    n_total_msgs = conn.execute("SELECT COUNT(*) FROM messages").fetchone()[0]
+    n_replied = conn.execute(
+        "SELECT COUNT(*) FROM prospects WHERE response IN ('replied', 'meeting_booked')"
+    ).fetchone()[0]
+
+    st.divider()
+
+    st.subheader("Overview")
+    p1, p2, p3, p4 = st.columns(4)
+    p1.metric("Companies", n_companies)
+    p2.metric("Prospects", f"{n_prospects} ({n_with_email} email)")
+    p3.metric("Sent / Total", f"{n_total_sent} / {n_total_msgs}")
+    p4.metric("Replied", n_replied)
+
+
 def main() -> None:
     st.set_page_config(page_title="Avery GTM Dashboard", layout="wide")
 
@@ -87,63 +330,80 @@ def main() -> None:
 
     conn = get_connection()
     init_db(conn)
+
+    # ── Pipeline controls (top) ─────────────────────────────────────────
+    _render_pipeline_section(conn)
+
     data = get_full_dashboard(conn)
 
     if not data:
-        st.warning("No data found. Run the pipeline first.")
+        st.info("No prospects yet. Use the Pipeline section above to find companies and people.")
         return
 
-    # ── Sidebar ──────────────────────────────────────────────────────────
-    with st.sidebar:
-        st.header("🎯 Filters")
-        companies = sorted(set(d["company_name"] for d in data))
-        sel_companies = st.multiselect("Company", companies, default=companies)
+    # Batch schedule
+    schedulable = [
+        d for d in data
+        if d.get("email")
+        and d.get("response", "none") not in ("replied", "meeting_booked", "rejected", "bounced")
+        and any(m["channel"] == "email" and m["status"] == "draft" for m in d["messages"])
+    ]
 
-        types = sorted(set(d["prospect_type"] for d in data))
-        sel_types = st.multiselect(
-            "Type", types, default=types,
-            format_func=lambda t: TYPE_LABELS.get(t, t),
+    if schedulable:
+        st.caption(f"{len(schedulable)} prospects with draft emails")
+        sched_rows = []
+        for d in schedulable:
+            n_drafts = sum(1 for m in d["messages"] if m["channel"] == "email" and m["status"] == "draft")
+            sched_rows.append({
+                "Name": d.get("name", ""),
+                "LinkedIn": d.get("linkedin_url") or None,
+                "Role": d.get("role", ""),
+                "Company": d.get("company_name", ""),
+                "Website": f"https://{d.get('domain', '')}" if d.get("domain") else None,
+                "Email": d.get("email", ""),
+                "Drafts": n_drafts,
+            })
+
+        sched_selected = st.dataframe(
+            pd.DataFrame(sched_rows),
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="multi-row",
+            column_config={
+                "LinkedIn": st.column_config.LinkColumn("LinkedIn", display_text="Profile"),
+                "Website": st.column_config.LinkColumn("Website", display_text="Visit"),
+            },
+            key="batch_schedule_table",
         )
-        sel_response = st.multiselect("Response", RESPONSE_OPTIONS, default=RESPONSE_OPTIONS)
 
-        st.divider()
-        st.header("📧 Email Controls")
-
-        n_draft = conn.execute(
-            "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='draft'",
-        ).fetchone()[0]
-        n_scheduled = conn.execute(
-            "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='scheduled'",
-        ).fetchone()[0]
-        n_due = conn.execute(
-            "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='scheduled' AND scheduled_date <= ?",
-            (date.today().isoformat(),),
-        ).fetchone()[0]
-        n_sent = conn.execute(
-            "SELECT COUNT(*) FROM messages WHERE channel='email' AND status='sent'",
-        ).fetchone()[0]
-
-        c1, c2 = st.columns(2)
-        c1.metric("Draft", n_draft)
-        c2.metric("Scheduled", n_scheduled)
-        c1.metric("Due Today", n_due)
-        c2.metric("Sent", n_sent)
-
-        if n_draft > 0 and st.button("📅 Schedule All Drafts", use_container_width=True):
-            count = schedule_emails()
-            st.success(f"Scheduled {count} emails")
+        sched_sel = sched_selected.selection.rows if sched_selected.selection else []
+        n_sel = len(sched_sel) if sched_sel else len(schedulable)
+        label = f"Schedule {n_sel} Selected" if sched_sel else f"Schedule All ({len(schedulable)})"
+        if st.button(label, type="primary", use_container_width=True, key="btn_batch_schedule"):
+            targets = [schedulable[i] for i in sched_sel] if sched_sel else schedulable
+            scheduled_count = 0
+            for d in targets:
+                base = date.today()
+                for m in d["messages"]:
+                    if m["channel"] == "email" and m["status"] == "draft":
+                        offset = SEQUENCE_DAYS.get(m["sequence_num"], 0)
+                        send_date = base + timedelta(days=offset)
+                        update_message(conn, m["id"],
+                                       status="scheduled",
+                                       scheduled_date=send_date.isoformat())
+                        scheduled_count += 1
+            st.success(f"Scheduled {scheduled_count} emails for {len(targets)} prospects")
             st.rerun()
 
-        if n_due > 0:
-            if st.button("🚀 Send Due Emails", type="primary", use_container_width=True):
-                sent = send_due_emails(dry_run=False)
-                if sent > 0:
-                    st.success(f"Sent {sent} emails!")
-                else:
-                    st.warning("No emails sent — check Loops config")
-                st.rerun()
 
-    # ── Filter data ──────────────────────────────────────────────────────
+    companies = sorted(set(d["company_name"] for d in data))
+    types = sorted(set(d["prospect_type"] for d in data))
+
+    search = st.text_input("Search by name, role, or company", key="search", placeholder="Type to search...")
+    sel_companies = st.pills("Company", companies, selection_mode="multi", default=companies, key="sel_companies")
+    sel_types = st.pills("Type", types, selection_mode="multi", default=types, format_func=lambda t: TYPE_LABELS.get(t, t), key="sel_types")
+    sel_response = st.pills("Response", RESPONSE_OPTIONS, selection_mode="multi", default=RESPONSE_OPTIONS, key="sel_response")
+
     filtered = [
         d for d in data
         if d["company_name"] in sel_companies
@@ -151,73 +411,20 @@ def main() -> None:
         and d.get("response", "none") in sel_response
     ]
 
-    # ── Header metrics ───────────────────────────────────────────────────
-    st.title("Avery GTM Dashboard")
-
-    m1, m2, m3, m4, m5 = st.columns(5)
-    m1.metric("Prospects", len(filtered))
-    m2.metric("With Email", sum(1 for d in filtered if d.get("email")))
-    total_sent = sum(1 for d in filtered for m in d["messages"] if m["status"] == "sent")
-    total_msgs = sum(len(d["messages"]) for d in filtered)
-    m3.metric("Sent / Total", f"{total_sent} / {total_msgs}")
-    m4.metric("Replied", sum(1 for d in filtered if d.get("response") in ("replied", "meeting_booked")))
-    m5.metric("Accepted", sum(1 for d in filtered if d.get("response") == "accepted"))
-
-    # ── Overview table ───────────────────────────────────────────────────
-    st.subheader("Prospect Overview")
-
-    if not filtered:
-        st.info("No prospects match current filters.")
-        return
-
-    search = st.text_input("🔍 Search by name, role, or company", key="search")
-    display = filtered
     if search:
         q = search.lower()
-        display = [
+        filtered = [
             d for d in filtered
             if q in d.get("name", "").lower()
             or q in d.get("role", "").lower()
             or q in d.get("company_name", "").lower()
         ]
 
-    # Batch schedule
-    schedulable = [
-        d for d in display
-        if d.get("email")
-        and d.get("response", "none") not in ("replied", "meeting_booked", "rejected", "bounced")
-        and any(m["channel"] == "email" and m["status"] == "draft" for m in d["messages"])
-    ]
+    if not filtered:
+        st.info("No prospects match current filters.")
+        return
 
-    if schedulable:
-        with st.expander(f"📅 Batch Schedule ({len(schedulable)} prospects with draft emails)", expanded=False):
-            options = [f"{d['name']} — {d['company_name']}" for d in schedulable]
-            selected = st.multiselect(
-                "Select prospects to schedule",
-                options,
-                default=options,
-                key="batch_select",
-            )
-            _, b2 = st.columns([3, 1])
-            with b2:
-                if st.button("📅 Schedule Selected", type="primary", use_container_width=True):
-                    scheduled_count = 0
-                    for label, d in zip(options, schedulable):
-                        if label not in selected:
-                            continue
-                        base = date.today()
-                        for m in d["messages"]:
-                            if m["channel"] == "email" and m["status"] == "draft":
-                                offset = SEQUENCE_DAYS.get(m["sequence_num"], 0)
-                                send_date = base + timedelta(days=offset)
-                                update_message(conn, m["id"],
-                                               status="scheduled",
-                                               scheduled_date=send_date.isoformat())
-                                scheduled_count += 1
-                    st.success(f"Scheduled {scheduled_count} emails for {len(selected)} prospects")
-                    st.rerun()
-
-    df = _build_overview_df(display)
+    df = _build_overview_df(filtered)
 
     st.dataframe(
         df,

@@ -43,7 +43,7 @@ LOOPS_API_KEY = os.environ.get("LOOPS_API_KEY", "")
 LOOPS_TRANSACTIONAL_ID = os.environ.get("LOOPS_TRANSACTIONAL_ID", "")
 LOOPS_BASE = "https://app.loops.so/api/v1"
 
-SEQUENCE_DAYS = {1: 0, 2: 8, 3: 23}
+SEQUENCE_DAYS = {1: 0, 2: 14}
 
 MAX_SEND_PER_RUN = int(os.environ.get("LOOPS_MAX_PER_RUN", "50"))
 SEND_INTERVAL = float(os.environ.get("LOOPS_SEND_INTERVAL", "0.15"))
@@ -106,10 +106,10 @@ def _send_one(to: str, subject: str, body: str, first_name: str = "") -> dict[st
     payload: dict[str, Any] = {
         "transactionalId": LOOPS_TRANSACTIONAL_ID,
         "email": to,
-        "addToAudience": True,
+        "addToAudience": False,
         "dataVariables": {
             "subject": subject,
-            "body": body,
+            "body": body.replace("\n", "<br>"),
             "firstName": first_name,
         },
     }

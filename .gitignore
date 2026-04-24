@@ -2,4 +2,8 @@
 .mcp.json
 __pycache__/
 .DS_Store
-.claude/.streamlit/secrets.toml
+.venv/
+.claude/
+.streamlit/secrets.toml
+output/avery_gtm.db-shm
+output/avery_gtm.db-wal

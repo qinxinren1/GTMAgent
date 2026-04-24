@@ -1,13 +1,11 @@
 """
-Stage 3 — LLM-based ICP filtering
+Stage 3 — LLM-based ICP filtering.
 
-Reads stage2 people output and uses Claude to filter for ideal customer
-profile matches: founders, Head of People/HR, Head of TA, recruiters.
-The LLM considers company stage (Series A vs B) when judging relevance.
+Reads prospects from the database that haven't been filtered yet,
+uses Claude to decide which ones match the ICP, and removes non-matches.
 
 Usage:
   python -m pipeline.people_filter
-  python -m pipeline.people_filter --input output/stage2_people_output.json
 """
 
 from __future__ import annotations
@@ -20,15 +18,9 @@ from typing import Any
 import anthropic
 from dotenv import load_dotenv
 
+from pipeline.db import get_connection, init_db
+
 load_dotenv()
-
-_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-_OUTPUT_BASE = os.environ.get("AVERY_OUTPUT_DIR", os.path.join(_REPO_ROOT, "output"))
-
-STAGE2_JSON = os.path.join(_OUTPUT_BASE, "stage2_people_output.json")
-OUTPUT_JSON = os.path.join(_OUTPUT_BASE, "stage3_filtered_people.json")
-
-STAGE1_JSON = os.path.join(_OUTPUT_BASE, "stage1_company_results.json")
 
 AWS_REGION = os.environ.get("AWS_REGION", "eu-central-1")
 MODEL = os.environ.get("ANTHROPIC_MODEL", "eu.anthropic.claude-opus-4-6-v1")
@@ -53,64 +45,44 @@ Example: [0, 3, 7]
 If nobody matches, respond with: []"""
 
 
-def load_stage2(path: str = STAGE2_JSON) -> list[dict[str, Any]]:
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
+def _get_unfiltered_prospects(conn) -> dict[str, list[dict[str, Any]]]:
+    rows = conn.execute("""
+        SELECT p.id, p.name, p.role, p.company_id,
+               c.name AS company_name, c.employees, c.latest_round
+        FROM prospects p
+        JOIN companies c ON p.company_id = c.id
+        LEFT JOIN messages m ON p.id = m.prospect_id
+        WHERE m.id IS NULL
+        ORDER BY c.name, p.name
+    """).fetchall()
 
-
-def load_company_meta() -> dict[str, dict[str, Any]]:
-    """Load stage1 to get employee count and funding round per company."""
-    if not os.path.exists(STAGE1_JSON):
-        return {}
-    with open(STAGE1_JSON, encoding="utf-8") as f:
-        data = json.load(f)
-    meta: dict[str, dict[str, Any]] = {}
-    for r in data.get("results", []):
-        entities = r.get("entities") or []
-        if not entities:
-            continue
-        props = entities[0].get("properties", {})
-        name = props.get("name", "")
-        meta[name] = {
-            "employees": (props.get("workforce") or {}).get("total"),
-            "latest_round": (props.get("financials") or {}).get("funding_latest_round", {}).get("name"),
-        }
-    return meta
-
-
-def build_user_prompt(
-    company_name: str,
-    people: list[dict[str, Any]],
-    company_info: dict[str, Any],
-) -> str:
-    employees = company_info.get("employees", "unknown")
-    funding = company_info.get("latest_round", "unknown")
-
-    lines = [f"Company: {company_name} ({employees} employees, {funding})"]
-    lines.append("")
-    for i, p in enumerate(people):
-        role = (p.get("currentRole") or {}).get("role", "unknown")
-        lines.append(f"{i}. {p.get('name', '?')} — {role}")
-
-    return "\n".join(lines)
+    by_company: dict[str, list[dict[str, Any]]] = {}
+    for r in rows:
+        company = r["company_name"]
+        by_company.setdefault(company, []).append(dict(r))
+    return by_company
 
 
 def filter_company(
     client: anthropic.AnthropicBedrock,
     company_name: str,
-    people: list[dict[str, Any]],
-    company_info: dict[str, Any],
-) -> list[dict[str, Any]]:
-    if not people:
+    prospects: list[dict[str, Any]],
+) -> list[int]:
+    if not prospects:
         return []
 
-    user_prompt = build_user_prompt(company_name, people, company_info)
+    employees = prospects[0].get("employees", "unknown")
+    funding = prospects[0].get("latest_round", "unknown")
+
+    lines = [f"Company: {company_name} ({employees} employees, {funding})", ""]
+    for i, p in enumerate(prospects):
+        lines.append(f"{i}. {p['name']} — {p.get('role', 'unknown')}")
 
     response = client.messages.create(
         model=MODEL,
         max_tokens=1024,
         system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_prompt}],
+        messages=[{"role": "user", "content": "\n".join(lines)}],
     )
 
     text = response.content[0].text.strip()
@@ -120,63 +92,59 @@ def filter_company(
         indices = json.loads(text)
     except json.JSONDecodeError:
         print(f"    ⚠ failed to parse LLM response for {company_name}: {text[:200]}")
-        return []
+        return list(range(len(prospects)))
 
     if not isinstance(indices, list):
-        return []
+        return list(range(len(prospects)))
 
-    selected = []
-    for idx in indices:
-        if isinstance(idx, int) and 0 <= idx < len(people):
-            selected.append(people[idx])
-    return selected
+    return [i for i in indices if isinstance(i, int) and 0 <= i < len(prospects)]
 
 
-def run_filter(
-    input_path: str = STAGE2_JSON,
-    output_path: str = OUTPUT_JSON,
-) -> list[dict[str, Any]]:
-    stage2 = load_stage2(input_path)
-    company_meta = load_company_meta()
+def run_filter() -> int:
+    conn = get_connection()
+    init_db(conn)
+
+    by_company = _get_unfiltered_prospects(conn)
+    if not by_company:
+        print("[Stage 3] No unfiltered prospects found.")
+        conn.close()
+        return 0
+
+    total_prospects = sum(len(v) for v in by_company.values())
+    print(f"[Stage 3 / LLM Filter] {total_prospects} prospects across {len(by_company)} companies\n")
+
     client = anthropic.AnthropicBedrock(aws_region=AWS_REGION)
+    total_kept = 0
+    total_removed = 0
 
-    print(f"[Stage 3 / LLM Filter] {len(stage2)} companies, model={MODEL}")
+    for company_name, prospects in by_company.items():
+        keep_indices = filter_company(client, company_name, prospects)
+        keep_ids = {prospects[i]["id"] for i in keep_indices}
+        remove_ids = [p["id"] for p in prospects if p["id"] not in keep_ids]
 
-    out: list[dict[str, Any]] = []
+        for p in prospects:
+            if p["id"] in keep_ids:
+                print(f"  ✓ {p['name']} — {p.get('role', '?')}")
 
-    for entry in stage2:
-        company_name = entry["company"]
-        people = entry["people"]
-        info = company_meta.get(company_name, {})
+        if remove_ids:
+            placeholders = ",".join("?" * len(remove_ids))
+            conn.execute(f"DELETE FROM prospects WHERE id IN ({placeholders})", remove_ids)
+            conn.commit()
 
-        selected = filter_company(client, company_name, people, info)
-        print(f"  {company_name}: {len(people)} → {len(selected)} matches")
-        for p in selected:
-            role = (p.get("currentRole") or {}).get("role", "?")
-            print(f"    ✓ {p.get('name', '?')} — {role}")
+        kept = len(keep_ids)
+        removed = len(remove_ids)
+        total_kept += kept
+        total_removed += removed
+        print(f"  {company_name}: {len(prospects)} → {kept} kept, {removed} removed\n")
 
-        out.append({
-            "company": company_name,
-            "domain": entry.get("domain", ""),
-            "total_before_filter": len(people),
-            "people": selected,
-        })
-
-    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(out, f, indent=2, ensure_ascii=False)
-
-    n_people = sum(len(x["people"]) for x in out)
-    print(f"\nDone: {len(out)} companies, {n_people} ICP matches → {output_path}")
-    return out
+    conn.close()
+    print(f"Done: {total_kept} ICP matches kept, {total_removed} removed")
+    return total_kept
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="LLM-based ICP filter (stage 3)")
-    p.add_argument("--input", "-i", default=STAGE2_JSON)
-    p.add_argument("--output", "-o", default=OUTPUT_JSON)
-    args = p.parse_args()
-    run_filter(input_path=args.input, output_path=args.output)
+    argparse.ArgumentParser(description="LLM-based ICP filter (stage 3)").parse_args()
+    run_filter()
 
 
 if __name__ == "__main__":

@@ -204,7 +204,49 @@ def update_message(conn: sqlite3.Connection, message_id: int, **kw: Any) -> None
     conn.commit()
 
 
-# ── Queries ───────────────────────────────────────────────────────────────
+# ── Pipeline queries ─────────────────────────────────────────────────────
+
+def get_companies_without_prospects(conn: sqlite3.Connection) -> list[dict[str, Any]]:
+    rows = conn.execute("""
+        SELECT c.* FROM companies c
+        LEFT JOIN prospects p ON c.id = p.company_id
+        WHERE p.id IS NULL
+        ORDER BY c.name
+    """).fetchall()
+    return [dict(r) for r in rows]
+
+
+def get_prospects_without_email(conn: sqlite3.Connection) -> list[dict[str, Any]]:
+    rows = conn.execute("""
+        SELECT p.*, c.name AS company_name, c.domain
+        FROM prospects p
+        JOIN companies c ON p.company_id = c.id
+        WHERE (p.email IS NULL OR p.email = '')
+          AND p.linkedin_url IS NOT NULL AND p.linkedin_url != ''
+        ORDER BY c.name, p.name
+    """).fetchall()
+    return [dict(r) for r in rows]
+
+
+def get_prospects_without_messages(conn: sqlite3.Connection) -> list[dict[str, Any]]:
+    rows = conn.execute("""
+        SELECT p.*, c.name AS company_name, c.domain, c.description AS company_description,
+               c.employees, c.latest_round, c.hq_city
+        FROM prospects p
+        JOIN companies c ON p.company_id = c.id
+        LEFT JOIN messages m ON p.id = m.prospect_id
+        WHERE m.id IS NULL
+        ORDER BY c.name, p.name
+    """).fetchall()
+    return [dict(r) for r in rows]
+
+
+def prospect_exists(conn: sqlite3.Connection, external_id: str) -> bool:
+    row = conn.execute("SELECT 1 FROM prospects WHERE external_id = ?", (external_id,)).fetchone()
+    return row is not None
+
+
+# ── Dashboard queries ────────────────────────────────────────────────────
 
 def get_full_dashboard(conn: sqlite3.Connection) -> list[dict[str, Any]]:
     rows = conn.execute("""
