@@ -340,75 +340,34 @@ def main() -> None:
         st.info("No prospects yet. Use the Pipeline section above to find companies and people.")
         return
 
-    # Batch schedule
-    schedulable = [
-        d for d in data
-        if d.get("email")
-        and d.get("response", "none") not in ("replied", "meeting_booked", "rejected", "bounced")
-        and any(m["channel"] == "email" and m["status"] == "draft" for m in d["messages"])
-    ]
-
-    if schedulable:
-        st.caption(f"{len(schedulable)} prospects with draft emails")
-        sched_rows = []
-        for d in schedulable:
-            n_drafts = sum(1 for m in d["messages"] if m["channel"] == "email" and m["status"] == "draft")
-            sched_rows.append({
-                "Name": d.get("name", ""),
-                "LinkedIn": d.get("linkedin_url") or None,
-                "Role": d.get("role", ""),
-                "Company": d.get("company_name", ""),
-                "Website": f"https://{d.get('domain', '')}" if d.get("domain") else None,
-                "Email": d.get("email", ""),
-                "Drafts": n_drafts,
-            })
-
-        sched_selected = st.dataframe(
-            pd.DataFrame(sched_rows),
-            use_container_width=True,
-            hide_index=True,
-            on_select="rerun",
-            selection_mode="multi-row",
-            column_config={
-                "LinkedIn": st.column_config.LinkColumn("LinkedIn", display_text="Profile"),
-                "Website": st.column_config.LinkColumn("Website", display_text="Visit"),
-            },
-            key="batch_schedule_table",
-        )
-
-        sched_sel = sched_selected.selection.rows if sched_selected.selection else []
-        n_sel = len(sched_sel) if sched_sel else len(schedulable)
-        label = f"Schedule {n_sel} Selected" if sched_sel else f"Schedule All ({len(schedulable)})"
-        if st.button(label, type="primary", use_container_width=True, key="btn_batch_schedule"):
-            targets = [schedulable[i] for i in sched_sel] if sched_sel else schedulable
-            scheduled_count = 0
-            for d in targets:
-                base = date.today()
-                for m in d["messages"]:
-                    if m["channel"] == "email" and m["status"] == "draft":
-                        offset = SEQUENCE_DAYS.get(m["sequence_num"], 0)
-                        send_date = base + timedelta(days=offset)
-                        update_message(conn, m["id"],
-                                       status="scheduled",
-                                       scheduled_date=send_date.isoformat())
-                        scheduled_count += 1
-            st.success(f"Scheduled {scheduled_count} emails for {len(targets)} prospects")
-            st.rerun()
-
-
     companies = sorted(set(d["company_name"] for d in data))
     types = sorted(set(d["prospect_type"] for d in data))
+
+    def _email_status(d):
+        em = [m for m in d["messages"] if m["channel"] == "email"]
+        if not em:
+            return "no email"
+        statuses = set(m["status"] for m in em)
+        if "sent" in statuses:
+            return "sent"
+        if "scheduled" in statuses:
+            return "scheduled"
+        return "draft"
+
+    email_statuses = sorted(set(_email_status(d) for d in data))
 
     search = st.text_input("Search by name, role, or company", key="search", placeholder="Type to search...")
     sel_companies = st.pills("Company", companies, selection_mode="multi", default=companies, key="sel_companies")
     sel_types = st.pills("Type", types, selection_mode="multi", default=types, format_func=lambda t: TYPE_LABELS.get(t, t), key="sel_types")
     sel_response = st.pills("Response", RESPONSE_OPTIONS, selection_mode="multi", default=RESPONSE_OPTIONS, key="sel_response")
+    sel_email_status = st.pills("Email Status", email_statuses, selection_mode="multi", default=email_statuses, key="sel_email_status")
 
     filtered = [
         d for d in data
         if d["company_name"] in sel_companies
         and d["prospect_type"] in sel_types
         and d.get("response", "none") in sel_response
+        and _email_status(d) in sel_email_status
     ]
 
     if search:
@@ -426,15 +385,46 @@ def main() -> None:
 
     df = _build_overview_df(filtered)
 
-    st.dataframe(
+    prospect_selected = st.dataframe(
         df,
         use_container_width=True,
         hide_index=True,
+        on_select="rerun",
+        selection_mode="multi-row",
         column_config={
             "Email": st.column_config.TextColumn("Email", width="medium"),
             "Response": st.column_config.TextColumn("Response", width="small"),
         },
+        key="prospect_table",
     )
+
+    # Schedule button for selected/all draft prospects
+    schedulable_indices = [
+        i for i, d in enumerate(filtered)
+        if d.get("email")
+        and d.get("response", "none") not in ("replied", "meeting_booked", "rejected", "bounced")
+        and any(m["channel"] == "email" and m["status"] == "draft" for m in d["messages"])
+    ]
+    sel_rows = prospect_selected.selection.rows if prospect_selected.selection else []
+    sched_targets = [i for i in sel_rows if i in schedulable_indices] if sel_rows else schedulable_indices
+
+    if sched_targets:
+        label = f"Schedule {len(sched_targets)} Selected" if sel_rows else f"Schedule All Drafts ({len(sched_targets)})"
+        if st.button(label, type="primary", use_container_width=True, key="btn_batch_schedule"):
+            scheduled_count = 0
+            for i in sched_targets:
+                d = filtered[i]
+                base = date.today()
+                for m in d["messages"]:
+                    if m["channel"] == "email" and m["status"] == "draft":
+                        offset = SEQUENCE_DAYS.get(m["sequence_num"], 0)
+                        send_date = base + timedelta(days=offset)
+                        update_message(conn, m["id"],
+                                       status="scheduled",
+                                       scheduled_date=send_date.isoformat())
+                        scheduled_count += 1
+            st.success(f"Scheduled {scheduled_count} emails for {len(sched_targets)} prospects")
+            st.rerun()
 
     # ── Prospect detail ──────────────────────────────────────────────────
     st.divider()
